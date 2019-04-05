@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:44:41 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/05 18:48:59 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/05 19:19:40 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ t_list *createtr(char *buf, char a, int ret)
 
 	newbuf = (char *)malloc(sizeof(char) * 16);
 	ft_bzero(newbuf, 16);
+	ft_memmove(newbuf, buf, )
 	printf("%s", newbuf);
 	tetrimino.height = 12;
 	tetrimino.letter = a;
-	tetrimino.shape = createshape(*buf, a);
 	head = ft_lstnew(&tetrimino, sizeof(tetrimino));
 	return (head);
 }

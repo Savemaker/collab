@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:31:09 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/05 18:31:07 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/05 19:13:43 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_tetr{
 	int				height;
 	int				width;
 	char			letter;
-	char			**shape;
+	char			*shape;
 }					t_tetr;
 
 t_list				*reading(const int fd);
