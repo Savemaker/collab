@@ -6,13 +6,13 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:30:54 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 17:34:45 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/06 17:42:05 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int	main(void)
+int main(void)
 {
 	int		fd;
 	t_list	*list;
@@ -31,7 +31,7 @@ int	main(void)
 		a = tetr->shape;
 		i = 0;
 		while (i < 4)
-			printf("\033[22;31m%s\n", a[i++]);
+			printf("\033[22;35m%s\n", a[i++]);
 		printf("\n");
 		list = list->next;
 	}
