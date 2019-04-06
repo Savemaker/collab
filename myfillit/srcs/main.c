@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:30:54 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 20:37:14 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/07 00:35:59 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(void)
 	{
 		tetr = list->content;
 		a = tetr->shape;
-		i = tetr ->height;
+		i = tetr ->width;
 		printf("%d", i);
 		// while (i < 4)
 		// 	printf("\033[22;35m%s\n", a[i++]);

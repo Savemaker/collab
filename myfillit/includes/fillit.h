@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:31:09 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 20:38:13 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/06 23:58:09 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void				trim(char **bufnew, char *buf, char a);
 void				freeshape(char **shape);
 int					sizeof_desk(t_list *list);
 int					height(char **shape, char a);
+int					width(char **shape, char a);
 
 #endif
