@@ -6,13 +6,13 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 13:38:46 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 13:42:24 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/06 17:33:06 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-char	*ft_strndup(const char *s, size_t n)
+char		*ft_strndup(const char *s, size_t n)
 {
 	char	*str;
 
@@ -24,7 +24,7 @@ char	*ft_strndup(const char *s, size_t n)
 	return (str);
 }
 
-char	*ft_strdup(const char *s1)
+char		*ft_strdup(const char *s1)
 {
 	char	*str;
 	int		i;
@@ -42,7 +42,7 @@ char	*ft_strdup(const char *s1)
 	return (str);
 }
 
-char	*ft_strncpy(char *dst, const char *src, size_t n)
+char		*ft_strncpy(char *dst, const char *src, size_t n)
 {
 	size_t i;
 
@@ -60,7 +60,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t n)
 	return (dst);
 }
 
-int		ft_strlen(const char *s)
+int			ft_strlen(const char *s)
 {
 	int i;
 
@@ -68,4 +68,14 @@ int		ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
+}
+
+void		freeshape(char **shape)
+{
+	int i;
+
+	i = 0;
+	while (i < 5)
+		free(shape[i++]);
+	free(shape);
 }

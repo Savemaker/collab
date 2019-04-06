@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:44:41 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 15:15:26 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/06 17:32:32 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,6 @@ t_list		*reading(const int fd)
 	return (list);
 }
 
-// void	shapetoletter(char *buf, char a)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (buf[i] != '\0')
-// 	{
-// 		if (buf[i] == '#')
-// 			buf[i] = a;
-// 		i++;
-// 	}
-// }
-
-
 void		push_end(t_list **list, t_list *head)
 {
 	t_list *new;
@@ -54,13 +40,13 @@ void		push_end(t_list **list, t_list *head)
 	{
 		*list = head;
 	}
-	else	
+	else
 	{
 		while (new->next)
 		{
-			new = new ->next;
+			new = new->next;
 		}
-		new -> next = head;
+		new->next = head;
 	}
 }
 

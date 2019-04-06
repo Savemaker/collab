@@ -6,13 +6,13 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 14:03:43 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 17:09:15 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/06 17:31:15 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-t_list				*ft_lstnew(void const *content, size_t content_size)
+t_list		*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *new;
 
@@ -35,11 +35,11 @@ t_list				*ft_lstnew(void const *content, size_t content_size)
 	return (new);
 }
 
-t_list *createtr(char *buf, char a, int ret)
+t_list		*createtr(char *buf, char a, int ret)
 {
 	t_list	*head;
 	t_tetr	tetrimino;
-	int i;
+	int		i;
 
 	tetrimino.height = 12;
 	tetrimino.letter = a;
@@ -48,7 +48,7 @@ t_list *createtr(char *buf, char a, int ret)
 	return (head);
 }
 
-char	**createshape(char *buf, char a, int ret)
+char		**createshape(char *buf, char a, int ret)
 {
 	char	*newbuf;
 	char	**shape;
@@ -77,12 +77,12 @@ char	**createshape(char *buf, char a, int ret)
 	return (shape);
 }
 
-void	trim(char **bufnew, char *buf, char a)
+void		trim(char **bufnew, char *buf, char a)
 {
-	char *new;
-	int i;
-	int j;
-	int c;
+	char	*new;
+	int		i;
+	int		j;
+	int		c;
 
 	j = 0;
 	i = 0;
@@ -105,18 +105,9 @@ void	trim(char **bufnew, char *buf, char a)
 	new[i] = '\0';
 }
 
-void	freeshape(char **shape)
+void		deletelist(t_list **headref)
 {
-	int i;
-
-	i = 0;
-	while (i < 5)
-		free(shape[i++]);
-	free(shape);
-}
-void	deletelist(t_list **headref)
-{
-	t_list	*current; // deref headRef to get the real head
+	t_list	*current;
 	t_list	*next;
 	char	**shape;
 	t_tetr	*a;
@@ -127,12 +118,12 @@ void	deletelist(t_list **headref)
 	while (current != NULL)
 	{
 		a = current->content;
-		shape = a ->shape;
+		shape = a->shape;
 		freeshape(shape);
-		next = current->next; // note the next pointer
+		next = current->next;
 		free(a);
-		free(current); // delete the node
-		current = next; // advance to the next node
+		free(current);
+		current = next;
 	}
-	*headref = NULL; // Again, deref headRef to affect the real head back
+	*headref = NULL;
 }
