@@ -1,6 +1,7 @@
 NAME = fillit
 
-SRC = ./srcs/main.c ./srcs/reading.c ./srcs/listfunc.c ./srcs/lib.c ./srcs/slavastrdup.c
+SRC = ./srcs/main.c ./srcs/reading.c ./srcs/listfunc.c ./srcs/lib.c ./srcs/slavastrdup.c \
+	./srcs/validation.c
 
 OBJ = $(SRC:.c=.o)
 
