@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:30:54 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/05 18:49:41 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/06 17:15:48 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,25 @@ int main()
 {
 	int fd;
 	t_list *list;
+	t_list *temp;
 	t_tetr *tetr;
 	char **a;
+	int i;
 
+	i = 0;
 	fd = open("sample", O_RDONLY);
 	list = reading(fd);
-	deletelist(&list);	
+	temp = list;
+	while (list)
+	{
+		tetr = list ->content;
+		a = tetr->shape;
+		i = 0;
+		while (i < 4)
+			printf("\033[22;31m%s\n", a[i++]);
+		printf("\n");
+		list = list ->next;
+	}
+	deletelist(&temp);	
 	return (0);
 }
