@@ -20,7 +20,7 @@ void		free_tetr_lst(t_tetr **tetr)
 	free(*tetr);
 	*tetr = NULL;
 }
-void clean(char **desk, int desk_size)
+void clean_desk(char **desk, int desk_size)
 {
 	int i;
 
@@ -39,19 +39,20 @@ void		free_mark(t_mark **mark)
 	*mark = NULL;
 }
 
-void	del_tetr(void *content, size_t content_size)
+void	del_lst(t_list **begin_lst)
 {
+	t_list *current;
+	t_list *next;
+	t_tetr *present_tetr;
 
-}
-
-void clean_desk(char **desk, int desk_size)
-{
-	int i;
-
-	i = 0;
-	while (i < desk_size)
+	current = *begin_lst;
+	while (current != NULL)
 	{
-		ft_strdel(&desk[i]);
-		i++;
+		present_tetr = current->content;
+		free_tetr_lst(&present_tetr);
+		next = current->next;
+		free(current);
+		current = next;
 	}
+	*begin_lst = NULL;
 }

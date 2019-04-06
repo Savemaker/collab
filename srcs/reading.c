@@ -37,7 +37,7 @@ t_list	*read_input(int fd)
 		valid_line(fd, tetrLine);
 		tetrLine[20] = '\0';
 		tetradd(&beginLst, &finalLst, tetrLine, fig_count);
-	//	ft_bzero(tetrLine, 21);
+		ft_bzero(tetrLine, 21);
 		fig_count++;
 	}
 	ft_strdel(&tetrLine);

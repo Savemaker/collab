@@ -49,21 +49,41 @@ int fillit(char **desk, t_mark *start, t_list **finish)
 	int fits;
 
 	//fckn algorithm
-	if (!fits)
-		return (0);
+
+//	if (!(fits = does))
+//		return (0);
 	return (1);
 }
-
+int	sizeof_desk(t_list *list)
+{
+    t_list *head;
+    t_tetr *tetr;
+    int n;
+    n = 0;
+    head = list;
+    tetr = head->content;
+    while (head)
+    {
+        head = head->next;
+        n++;
+    }
+   if (tetr->height == 2 && tetr-> width== 2)
+        return (2);
+   else if (tetr->height == 4 || tetr->width == 4)
+       return (4);
+   else if (tetr->height == 3 || tetr->width == 3)
+       return (3);
+   else
+       return (0);
+}
 void solving(t_list **tetr)
 {
 	int desk_size;
 	char **desk;
 	t_mark *start;
-	int i;
 	t_list *finish;
 
-	i = 0;
-	desk_size = 2;
+	desk_size = sizeof_desk(*tetr);
 	desk = draw_desk(desk_size);
 	start = create_marks(0);
 	while (!(fillit(desk, start, &finish)))

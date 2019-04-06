@@ -31,7 +31,7 @@ void set_marks(char *shape, t_mark ***marks)
 	len = -1;
 	while (shape[++len])
 	{
-		if (shape[len] == (char)35)
+		if (shape[len] == '#')
 		{
 			if (len % 5 > max_width)
 				max_width = len % 5;
@@ -44,7 +44,6 @@ void set_marks(char *shape, t_mark ***marks)
 			brick++;
 		}
 	}
-	//(*marks)[1]->col = max_width > (*marks)[1]->col ? max_width : (*marks)[1]->col;
 }
 t_mark		*create_marks(int len)
 {
@@ -86,12 +85,12 @@ char		**make_tetr_shape(int height, int width)
 
 	if (!(shape = (char **)ft_memalloc(sizeof(*shape) * height + 1)))
 		stop();
-	i = 0;
-		while (i < height)
+	i = -1;
+		while (++i < height)
 		{
 			if (!(shape[i] = ft_strnew((size_t)width)))
 			{
-				while (--i)
+				while (i--)
 					ft_strdel(&shape[i]);
 				stop();
 			}

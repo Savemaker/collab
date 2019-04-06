@@ -16,7 +16,8 @@ void valid_line(int fd, char *line)
 	{
 		if ((*line == '\0' && (linenum % 5 != 0)) || ((linenum % 5 == 0) && *line))
 			stop();
-		if (ft_strlen(line) == 0 || ft_strlen(line) == 4) {
+		if (ft_strlen(line) == 0 || ft_strlen(line) == 4)
+		{
 			brick = 0;
 			while (line[i] != '\0') {
 				if (line[i] != '.' && line[i] != '#')
@@ -27,7 +28,8 @@ void valid_line(int fd, char *line)
 			}
 			if ((i != 0 && i != 4) || brick > 4)
 				stop();
-		} else
+		}
+		else
 			stop();
 		linenum++;
 	}
