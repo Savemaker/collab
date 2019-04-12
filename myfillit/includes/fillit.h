@@ -21,6 +21,7 @@
 typedef struct		s_list{
 	void			*content;
 	size_t			content_size;
+	int				pos;
 	struct s_list	*next;
 }					t_list;
 
@@ -48,8 +49,26 @@ int					ft_strlen(const char *s);
 char				**createshape(char *buf, char a, int ret);
 void				trim(char **bufnew, char *buf, char a);
 void				freeshape(char **shape);
-int					sizeof_desk(t_list *list);
 int					height(char **shape, char a);
 int					width(char **shape, char a);
+int					touch(char **shape, char a);
+int					count(char **shape, int *i, int *j, char a);
+int					quantity(char **shape, char a);
+void				val(t_tetr *tetr);
+void				stop(void);
+void				bufchecker(char *buf, char a);
+void				nchecker(char *buf);
+int					desksize(t_list *list);
+char				**createboard(int s);
+int					checkmoveup(char **shape, char a);
+void				default_line(char *line);
+void				moveup(char **shape, char a, int h);
+int					needtomove(char **shape, char a);
+void				moveleft(char **shape, char a);
+int					pathfinder(char **shape, int l, char a);
+void				default_tet(char **board, char a);
+int					addtoboard(char **board, t_tetr *tetr, int pos, int size);
+void				freeboard(char **board, int size);
+int					recursion(t_list *list, char **board, int size, int pos);
 
 #endif

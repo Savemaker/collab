@@ -25,9 +25,14 @@ t_list		*reading(const int fd)
 	while ((ret = read(fd, buf, 21)) && ret != -1)
 	{
 		buf[ret] = '\0';
+		if (a > 'Z')
+			stop();
+		if (buf[ret - 1] != '\n')
+			stop();
 		head = createtr(buf, a++, ret);
 		push_end(&list, head);
 	}
+
 	return (list);
 }
 
@@ -53,4 +58,45 @@ void		push_end(t_list **list, t_list *head)
 void		ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
+}
+
+void	bufchecker(char *buf, char a)
+{
+	int n;
+	int d;
+	int l;
+	int i;
+
+	i = 0;
+	n = 0;
+	d = 0;
+	l = 0;
+	while (buf[i] != '\0')
+	{
+		if (buf[i] == '.')
+			d++;
+		if (buf[i] == a)
+			l++;
+		i++;
+	}
+	if (d != 12 && l != 4)
+		stop();
+	nchecker(buf);
+}
+
+void	nchecker(char *buf)
+{
+	int flag;
+
+	flag = 0;
+	if (buf[4] != '\n')
+		flag = 1;
+	if (buf[9] != '\n')
+		flag = 1;
+	if (buf[14] != '\n')
+		flag = 1;
+	if (buf[19] != '\n')
+		flag = 1;
+	if (flag == 1)
+		stop();
 }

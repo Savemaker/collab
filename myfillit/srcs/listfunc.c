@@ -40,13 +40,168 @@ t_list		*createtr(char *buf, char a, int ret)
 	t_list	*head;
 	t_tetr	tetrimino;
 	int		i;
+	int		t;
+	int		c;
 
+	c = 0;
+	bufchecker(buf, a);
 	tetrimino.letter = a;
 	tetrimino.shape = createshape(buf, a, ret);
 	tetrimino.height = height(tetrimino.shape, a);
 	tetrimino.width = width(tetrimino.shape, a);
+	val(&tetrimino);
+	moveup(tetrimino.shape, a, tetrimino.height);
+	moveleft(tetrimino.shape, a);
 	head = ft_lstnew(&tetrimino, sizeof(tetrimino));
 	return (head);
+}
+void	moveleft(char **shape, char a)
+{
+	int i;
+	int j;
+	int move;
+	char temp;
+
+	i = 0;
+	j = 0;
+	move = 0;
+	move = needtomove(shape, a);
+	if (move == 0)
+		return ;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if (shape[i][j] == a)
+			{
+				shape[i][j-move] = shape[i][j];
+				shape[i][j] = '.';
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+int		needtomove(char **shape, char a)
+{
+	int i;
+	int j;
+	int n;
+	int space;
+
+	i = 0;
+	j = 0;
+	n = 0;
+	space = 0;
+	while (j < 4)
+	{
+		i = 0;
+		n = 0;
+		while (i < 4)
+		{
+			if (shape[i][j] == '.')
+				n++;
+			else if (shape[i][j] == a)
+				return (space);
+			i++;
+		}
+		if (n == 4)
+			++space;
+		j++;
+	}
+	return (space);
+}
+
+void	moveup(char **shape, char a, int h)
+{
+	int s;
+	int i;
+	int j;
+
+	s = 0;
+	i = 0;
+	j = 0;
+	s = checkmoveup(shape, a);
+	if (s == 3)
+	{
+		ft_memcpy(shape[0], shape[3], 4);
+		default_line(shape[3]);
+	}
+	else if (s == 2)
+	{
+		ft_memcpy(shape[0], shape[2], 4);
+		ft_memcpy(shape[1], shape[3], 4);
+		default_line(shape[2]);
+		default_line(shape[3]);
+	}
+	else if (s == 1)
+	{
+		if (h == 1)
+		{
+			ft_memcpy(shape[0], shape[1], 4);
+			default_line(shape[1]);
+		}
+		else if (h == 2)
+		{
+			ft_memcpy(shape[0], shape[1], 4);
+			default_line(shape[1]);
+			ft_memcpy(shape[1], shape[2], 4);
+			default_line(shape[2]);
+		}
+		else if (h == 3)
+		{
+			ft_memcpy(shape[0], shape[1], 4);
+			default_line(shape[1]);
+			ft_memcpy(shape[1], shape[2], 4);
+			default_line(shape[2]);
+			ft_memcpy(shape[2], shape[3], 4);
+			default_line(shape[3]);
+		}
+	}
+}
+
+void	default_line(char *line)
+{
+	int i;
+
+	i = 0;
+	while(line[i] != '\0')
+	{
+		line[i] = '.';
+		i++;
+	}
+}
+
+int		checkmoveup(char **shape, char a)
+{
+	int i;
+	int j;
+	int f;
+	int space;
+
+	space = 0;
+	f = 0;
+	i = 0;
+	j = 0;
+	while (i < 4)
+	{
+		j = 0;
+		f = 0;
+		while (j < 4)
+		{
+			if (shape[i][j] == '.')
+				f++;
+			else if (shape[i][j] == a)
+				return (space);
+			j++;
+		}
+		if (f == 4)
+			++space;
+		i++;
+	}
+	return (space);
 }
 
 char		**createshape(char *buf, char a, int ret)

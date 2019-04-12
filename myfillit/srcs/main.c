@@ -20,22 +20,39 @@ int main(void)
 	t_tetr	*tetr;
 	char	**a;
 	int		i;
+	int		sizedesk;
+	char **board;
+
 
 	i = 0;
 	fd = open("sample", O_RDONLY);
 	list = reading(fd);
-	temp = list;
-	while (list)
-	{
-		tetr = list->content;
-		a = tetr->shape;
-		i = tetr ->width;
-		printf("%d", i);
-		// while (i < 4)
-		// 	printf("\033[22;35m%s\n", a[i++]);
-		printf("\n");
-		list = list->next;
-	}
-	deletelist(&temp);
+//PRINT LISTS
+//	while (list)
+//	{
+//		tetr = list -> content;
+//		f = addtoboard(board, tetr, p, sizedesk);
+//		i = 0;
+//		while (i < 4)
+//			printf("%s\n", a[i++]);
+//		printf("\n");
+//		list = list -> next;
+//	}
+
+//	while (list)
+//	{
+//		tetr = list -> content;
+//		f = addtoboard(board, tetr, p, sizedesk);
+//		if (f == 1)
+//			p++;
+//		else if (f == 0)
+//			list = list -> next;
+//		else if (list == NULL)
+//			return (0);
+//	}
+		
+//	while (i < sizedesk)
+//		printf("%s\n", board[i++]);
+//	deletelist(&temp);
 	return (0);
 }
