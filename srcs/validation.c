@@ -1,38 +1,24 @@
-//
-// Created by Екатерина on 2019-03-22.
-//
 #include "../includes/fill.h"
+#include "../libft/libft.h"
 
-void valid_line(int fd, char *line)
+void valid_line(char *line)
 {
+    int len;
+    int brick;
 
-	int i;
-	int linenum;
-	int brick;
+    brick = 0;
+    len = 0;
+    while (line[len])
+    {
+     if ((len + 1 % 5 == 0 && line[len] != '\n') || (line[len] != '\n' && line[len] != '.' && line[len] != '#'))
+         stop();
+     if (line[len] == '#')
+         brick++;
+     len++;
+    }
+    if (!brick || brick != 4)
+        stop();
 
-	linenum = 1;
-	i = 0;
-	while (get_next_line(fd, &line) == 1)
-	{
-		if ((*line == '\0' && (linenum % 5 != 0)) || ((linenum % 5 == 0) && *line))
-			stop();
-		if (ft_strlen(line) == 0 || ft_strlen(line) == 4)
-		{
-			brick = 0;
-			while (line[i] != '\0') {
-				if (line[i] != '.' && line[i] != '#')
-					stop();
-				if (line[i] != '#')
-					brick++;
-				i++;
-			}
-			if ((i != 0 && i != 4) || brick > 4)
-				stop();
-		}
-		else
-			stop();
-		linenum++;
-	}
 }
 void		valid_newlines(char *tetrLine)
 {

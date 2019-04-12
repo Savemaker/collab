@@ -1,11 +1,16 @@
-
 #include "../includes/fill.h"
+#include "../libft/libft.h"
+
+
 #include <stdio.h>
 
 void				check_count_of_tetr(int count)
 {
 	if (count > 26 || count < 0)
+	{
+		ft_putstr("Too much tetromino");
 		stop();
+	}
 }
 
 void open_file(char *fileContent) {
@@ -14,11 +19,13 @@ void open_file(char *fileContent) {
 
     if ((fd = open(fileContent, O_RDONLY)) == 1)
         stop();
-    if (!(tetr = read_input(fd))) {
+    if (!(tetr = read_input(fd)))
+    {
         close(fd);
         stop();
     }
-    solving(&tetr);
+    if (!solving(tetr))
+    	stop();
 }
 
 t_list	*read_input(int fd)
@@ -33,15 +40,14 @@ t_list	*read_input(int fd)
 	while (read(fd, tetrLine, 21))
 	{
 		check_count_of_tetr(fig_count + 1);
+        valid_line(tetrLine);
 		valid_newlines(tetrLine);
-		valid_line(fd, tetrLine);
-		tetrLine[20] = '\0';
 		tetradd(&beginLst, &finalLst, tetrLine, fig_count);
-		ft_bzero(tetrLine, 21);
 		fig_count++;
 	}
 	ft_strdel(&tetrLine);
 	if (fig_count == 0)
 		stop();
+	beginLst->content_size = (size_t)fig_count;
 	return (beginLst);
 }

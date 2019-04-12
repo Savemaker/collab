@@ -1,6 +1,5 @@
-
 #include "../includes/fill.h"
-#include <stdio.h>
+#include "../libft/libft.h"
 
 t_list	*new_tetr(char *tetr_str, char letter)
 {
@@ -25,7 +24,6 @@ void	tetradd(t_list **beginLst, t_list **finalLst, char *tetr_str, int fig_count
 		*finalLst = *beginLst;
 	else
 	{
-
        del_lst(beginLst);
        stop();
 	}

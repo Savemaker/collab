@@ -1,5 +1,5 @@
 #include "../includes/fill.h"
-#include <stdio.h>
+#include "../libft/libft.h"
 
 t_tetr		*create_tetr(char *shape, char letter)
 {
@@ -31,7 +31,7 @@ void set_marks(char *shape, t_mark ***marks)
 	len = -1;
 	while (shape[++len])
 	{
-		if (shape[len] == '#')
+		if (shape[len] == (char)35)
 		{
 			if (len % 5 > max_width)
 				max_width = len % 5;
@@ -59,21 +59,20 @@ t_mark		*create_marks(int len)
 void	fill_tetr(char *shape, char letter, t_tetr *new_tetr)
 {
 	int	i;
+	int j;
 	int position_of_brick;
 	char **tetr;
 
 	i = 0;
 	position_of_brick = new_tetr->position->row * 5 + new_tetr->position->col;
+	tetr= new_tetr->shape;
 	while (i < new_tetr->height)
 	{
-		tetr= new_tetr->shape;
+		j = 0;
 		ft_memcpy(tetr[i], &shape[position_of_brick], (size_t)new_tetr->width);
-		while (tetr[i])
-		{
-			if (*tetr[i] == '#')
-				tetr[i] = &letter;
-			i++;
-		}
+		while (tetr[i][j] != '\0')
+			if (tetr[i][j] == HASH)
+					tetr[i][j++] = letter;
 		i++;
 		position_of_brick += 5;
 	}
@@ -85,12 +84,12 @@ char		**make_tetr_shape(int height, int width)
 
 	if (!(shape = (char **)ft_memalloc(sizeof(*shape) * height + 1)))
 		stop();
-	i = -1;
-		while (++i < height)
+	i = 0;
+		while (i < height)
 		{
 			if (!(shape[i] = ft_strnew((size_t)width)))
 			{
-				while (i--)
+				while (--i)
 					ft_strdel(&shape[i]);
 				stop();
 			}

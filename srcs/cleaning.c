@@ -1,4 +1,5 @@
 #include "../includes/fill.h"
+#include "../libft/libft.h"
 
 void		free_tetr_lst(t_tetr **tetr)
 {
