@@ -70,5 +70,9 @@ void				default_tet(char **board, char a);
 int					addtoboard(char **board, t_tetr *tetr, int pos, int size);
 void				freeboard(char **board, int size);
 int					recursion(t_list *list, char **board, int size, int pos);
+void				fillit(t_list *list, char **board, int size);
+int					slidecheck(char **board, t_tetr *tetr);
+void				slideleft(char **board, t_tetr *tetr);
+int					listlen(t_list *list);
 
 #endif

@@ -20,13 +20,17 @@ int main(void)
 	t_tetr	*tetr;
 	char	**a;
 	int		i;
+	int pos;
 	int		sizedesk;
 	char **board;
 
-
+	pos = 0;
 	i = 0;
 	fd = open("sample", O_RDONLY);
 	list = reading(fd);
+	sizedesk = desksize(list);
+	board = createboard(sizedesk);
+	fillit(list, board, sizedesk);
 //PRINT LISTS
 //	while (list)
 //	{
@@ -50,9 +54,9 @@ int main(void)
 //		else if (list == NULL)
 //			return (0);
 //	}
-		
-//	while (i < sizedesk)
-//		printf("%s\n", board[i++]);
-//	deletelist(&temp);
+		i =0;
+	while (i < sizedesk)
+		printf("%s\n", board[i++]);
+	deletelist(&temp);
 	return (0);
 }

@@ -35,6 +35,19 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 	return (new);
 }
 
+int		listlen(t_list *list)
+{
+	int n;
+
+	n = 0;
+	while (list)
+	{
+		list = list->next;
+		n++;
+	}
+	return (n);
+}
+
 t_list		*createtr(char *buf, char a, int ret)
 {
 	t_list	*head;
@@ -53,6 +66,7 @@ t_list		*createtr(char *buf, char a, int ret)
 	moveup(tetrimino.shape, a, tetrimino.height);
 	moveleft(tetrimino.shape, a);
 	head = ft_lstnew(&tetrimino, sizeof(tetrimino));
+	head->pos = 0;
 	return (head);
 }
 void	moveleft(char **shape, char a)
