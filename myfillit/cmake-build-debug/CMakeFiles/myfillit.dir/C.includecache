@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+stdio.h
+-
+unistd.h
+-
+stdlib.h
+-
+fcntl.h
+-
+
+/Users/gbeqqo/mypcfor42/myfillit/srcs/main.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+

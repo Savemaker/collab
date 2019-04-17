@@ -29,3 +29,16 @@ char	**createboard(int s)
 	}
 	return (board);
 }
+
+void freeboard(char **board, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		free(board[i]);
+		i++;
+	}
+	free(board);
+}

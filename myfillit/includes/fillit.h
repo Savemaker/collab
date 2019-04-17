@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:31:09 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 23:58:09 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/15 20:28:25 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,22 @@ int					needtomove(char **shape, char a);
 void				moveleft(char **shape, char a);
 int					pathfinder(char **shape, int l, char a);
 void				default_tet(char **board, char a);
-int					addtoboard(char **board, t_tetr *tetr, int pos, int size);
-void				freeboard(char **board, int size);
+int					addtoboard(char **board, int size, t_tetr *tetr, int pos);
 int					recursion(t_list *list, char **board, int size, int pos);
-void				fillit(t_list *list, char **board, int size);
-int					slidecheck(char **board, t_tetr *tetr);
-void				slideleft(char **board, t_tetr *tetr);
+int					tryfillit(t_list *list, char **board, int size);
+int					slidecheck(char **board, t_tetr *tetr, int size);
+void				slideleft(char **board, t_tetr *tetr, int size);
 int					listlen(t_list *list);
+int					fc(t_tetr *tetr);
+void				freeboard(char **board, int size);
+int 				boardchecker(char **board, int size, t_tetr *tetr, int pos);
+void				switcheer(t_list **list);
+void				emptyboard(char **board, int size);
+int					checkpos(t_tetr *tetr);
+void				swap(t_list **head);
+int					checklist(t_list *list);
+void				correctplace(t_list *list);
+void				restorepos(t_list *list);
+void				feedswapedlist(t_list **headref);
 
 #endif

@@ -79,13 +79,3 @@ void		freeshape(char **shape)
 		free(shape[i++]);
 	free(shape);
 }
-
-void		freeboard(char **board, int size)
-{
-	int i;
-
-	i = 0;
-	while (i < size)
-		free(board[i++]);
-	free(board);
-}

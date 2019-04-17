@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 19:59:38 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 20:28:50 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/15 21:27:46 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,165 +70,281 @@ void	default_tet(char **board, char a)
 	}
 }
 
-int kostyl(t_tetr *tetr)
-{
-	if (tetr->height == 2 && tetr->width == 3)
-		return (1);
-	if (tetr->height == 3 && tetr->width == 2)
-		return (1);
-	return (0);
-}
-
-int		addtoboard(char **board, t_tetr *tetr, int pos, int size) //t tetr?
+int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 {
 	int i;
 	int j;
 	int x;
 	int y;
-	char **shape;
+	int c;
 
-	y = 0;
-	x = 0;
-	shape = tetr->shape;
+	c = 0;
 	i = 0;
 	j = 0;
+	x = 0;
+	y = 0;
 	i = pos / size;
 	j = pos % size;
-	while (i < (tetr->height + i) && y < tetr->height)
+	while (i < size)
 	{
 		j = pos % size;
-		x = 0;
-		while (j < (tetr->width + j) && x < tetr->width)
+		while (j < size)
 		{
-				if (pos % size + tetr->width > size)
-				{
-					default_tet(board, tetr->letter);
-					return (1);
-				}
-				else if (pos / size + tetr->height > size)
-				{
-					default_tet(board, tetr->letter);
-					return (1);
-				}
-				else if (board[i][j] != '.')
-				{
-					default_tet(board, tetr->letter);
-					return (1);
-				}
-			board[i][j] = shape[y][x];
+			if (board[i][j] == '.' && tetr->shape[y][x] == tetr->letter)
+				c++;
 			j++;
 			x++;
 		}
 		i++;
 		y++;
+		x = 0;
 	}
-	while (slidecheck(board, tetr) == 1)
-		slideleft(board, tetr);
-	return (2);
+	if (c == 4)
+		return (0);
+	return (1);
 }
 
-int		slidecheck(char **board, t_tetr *tetr)
+int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 {
 	int i;
 	int j;
-	int h;
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+	i = 0;
+	j = 0;
+	i = pos / size;
+	if (boardchecker(board, size, tetr, pos) == 0)
+	{
+		while (i < size)
+		{
+			j = pos % size;
+			while (j < size)
+			{
+				if (tetr->shape[y][x] == tetr->letter) {
+					board[i][j] = tetr->shape[y][x];
+				}
+				j++;
+				x++;
+			}
+			i++;
+			y++;
+			x = 0;
+		}
+		return (2);
+	}
+	return (1);
+}
+
+int tryfillit(t_list *list, char **board, int size)
+{
+	int i;
 	int f;
 
 	f = 0;
-	h = 0;
+	i = addtoboard(board, size, list->content, list->pos);
+	while (i == 2)
+	{
+		list = list->next;
+		if (list == NULL)
+			break;
+		i = addtoboard(board, size, list->content, list->pos);
+		while (i == 1)
+		{
+			list->pos++;
+			if (list->pos > (size * size) - 1)
+			{
+				f = 1;
+				break;
+			}
+			i = addtoboard(board, size, list->content, list->pos);
+		}
+	}
+	return (f);
+}
+
+void	restorepos(t_list *list)
+{
+	while (list != NULL)
+	{
+		list->pos = 0;
+		list = list ->next;
+	}
+}
+
+void	correctplace(t_list *list)
+{
+	char **shape;
+	t_tetr *tetr;
+	int i;
+	int j;
+
+	tetr = list->content;
+	shape = tetr->shape;
 	i = 0;
 	j = 0;
-	while (i < 4)
+	while (shape[0][j] == '.' && j < 4)
+		j++;
+	list->pos = list->pos + j;
+}
+
+int checklist(t_list *list)
+{
+	t_list *head;
+
+	head = list;
+	while (head != NULL)
 	{
-		j = 0;
-		while (j < 4)
-		{
-			if (board[i][j] == tetr->letter)
-			{
-				if (board[i][j-1] == '.')
-				{
-					f++;
-					j = 4;
-				}
-				if (f == tetr->height)
-					return (1);
-			}
-			j++;
-		}
-		i++;
+		if (head->pos == -1)
+			return (-1);
+		head = head -> next;
 	}
 	return (0);
 }
 
-void	slideleft(char **board, t_tetr *tetr)
+//void	fillit(t_list *list, char **board, int size)
+//{
+//	int pos;
+//	int i;
+//	int f;
+//	t_tetr *tetr;
+//	char **shape;
+//	int c;
+//	t_list *back;
+//
+//	back = list;
+//	tetr = NULL;
+//	c = 0;
+//	i = 0;
+//	f = 0;
+//	pos = 0;
+//	i = 1;
+//	while (i == 1)
+//	{
+//		c = 0;
+//		i = addtoboard(board, size, list->content, pos);
+//		tetr = list->content;
+//		shape = tetr->shape;
+//		while (shape[0][c++] == '.')
+//			pos += 1;
+//		if (i == 1)
+//			pos++;
+//		if (pos > (size * size) - 1)
+//		{
+//			pos = 0;
+//			f = 1;
+//			break ;
+//		}
+//	}
+//	if (i == 2)
+//	{
+//		list->pos = pos;
+//		list = list->next;
+//		if (list != NULL)
+//			fillit(list, board, size);
+//	}
+//	else if (f == 1)
+//	{
+//		list->pos = -1;
+//	}
+//}
+
+void	swap(t_list **head)
 {
-	int s;
-	int i;
-	int j;
-	char a;
+	t_list *cur;
+	t_list *temp;
+	t_list *list;
+
+	cur = *head;
+	temp = *head; //tut pervaya
+	list = *head;
+
+	cur = cur->next;
+	list = cur;
+	*head = list;
+	while (list->next != NULL)
+		list = list->next;
+	list->next = temp;
+	temp->next = NULL;
+}
+
+int		checkpos(t_tetr *tetr)
+{
 	char **shape;
 
-	a = tetr->letter;
 	shape = tetr->shape;
+	if (shape[0][0] == '.')
+		return (1); //emy pohuy na eto
+	return (0);
+}
+
+void	emptyboard(char **board, int size)
+{
+	int i;
+	int j;
+
 	i = 0;
 	j = 0;
-	s = 0;
-	s = slidecheck(board, tetr);
-	if (s == 1)
+	while (i < size)
 	{
-		while (i < 4)
+		j = 0;
+		while (j < size)
 		{
-			j = 0;
-			while (j < 4)
-			{
-				if (board[i][j] == a)
-				{
-					board[i][j-1] = board[i][j];
-					board[i][j] = '.';
-				}
-				j++;
-			}
-			i++;
+			board[i][j] = '.';
+			j++;
 		}
+		i++;
 	}
 }
 
-void	fillit(t_list *list, char **board, int size)
-{
-	int pos;
-	int i;
-	int f;
-	t_list *back;
-
-	f = 0;
-	pos = list->pos;
-	i = 1;
-	while (i == 1)
-	{
-		i = addtoboard(board, list->content, pos, size);
-		pos++;
-		if (pos > (size * size) - 1)
-		{
-			pos = 0;
-			f = 1;
-			break ;
-		}
-	}
-	if (i == 2)
-	{
-		list->pos = pos;
-		back = list;
-		list = list->next;
-		if (list != NULL)
-			fillit(list, board, size);
-	}
-}
+//int		fc(t_tetr *tetr)
+//{
+//	char **shape;
+//	int c;
+//
+//	c = 0;
+//	shape = tetr->shape;
+//	while (shape[0][c] == '.')
+//		c++;
+//	return (c);
+//}
 
 
 
-
-
-
+//void	slideleft(char **board, t_tetr *tetr, int size)
+//{
+//	int s;
+//	int i;
+//	int j;
+//	char a;
+//	char **shape;
+//
+//	a = tetr->letter;
+//	shape = tetr->shape;
+//	i = 0;
+//	j = 0;
+//	s = 0;
+//	s = slidecheck(board, tetr, size);
+//	if (s == 1)
+//	{
+//		while (i < size)
+//		{
+//			j = 0;
+//			while (j < size)
+//			{
+//				if (board[i][j] == a)
+//				{
+//					board[i][j-1] = board[i][j];
+//					board[i][j] = '.';
+//				}
+//				j++;
+//			}
+//			i++;
+//		}
+//	}
+//}
 
 //int		fillit(t_list *list, int size, int board)
 //{
@@ -266,4 +382,111 @@ void	fillit(t_list *list, char **board, int size)
 //			p = li->pos + 1;
 //		}
 //	}
+//
+
+
+//int		slidecheck(char **board, t_tetr *tetr, int size)
+//{
+//	int i;
+//	int j;
+//	int h;
+//	int f;
+//
+//	f = 0;
+//	h = 0;
+//	i = 0;
+//	j = 0;
+//	while (i < size)
+//	{
+//		j = 0;
+//		while (j < size)
+//		{
+//			if (board[i][j] == tetr->letter)
+//			{
+//				if (board[i][j-1] == '.')
+//				{
+//					f++;
+//					j = size + 1;
+//				}
+//				if (f == tetr->height)
+//					return (1);
+//			}
+//			j++;
+//		}
+//		i++;
+//	}
+//	return (0);
+//}// int		addtoboard(char **board, t_tetr *tetr, int pos, int size) //t tetr?
+//// {
+//// 	int i;
+//// 	int j;
+//// 	int x;
+//// 	int y;
+//// 	char **shape;
+//// 	int c;
+////
+//// 	c = 0;
+//// 	y = 0;
+//// 	x = 0;
+//// 	shape = tetr->shape;
+////
+//// 	x = 0;
+//// 	i = 0;
+//// 	j = 0;
+//// 	i = pos / size;
+//// 	j = pos % size;
+//// 	while (i < (tetr->height + i) && y < tetr->height)
+//// 	{
+//// 		j = pos % size;
+//// 		x = 0;
+//// 		while (j < (tetr->width + j) && x < tetr->width)
+//// 		{
+//// 				//c = fc(tetr);
+//// 				if (pos % size + tetr->width - fc(tetr) > size)
+//// 				{
+//// 					default_tet(board, tetr->letter);
+//// 					return (1);
+//// 				}
+//// 				else if (pos / size + tetr->height > size)
+//// 				{
+//// 					default_tet(board, tetr->letter);
+//// 					return (1);
+//// 				}
+//// 				else if (board[i][j] != '.')
+//// 				{
+//// 					default_tet(board, tetr->letter);
+//// 					return (1);
+//// 				}
+//// 			c = fc(tetr);
+//// 			board[i][j] = shape[y][x];
+//// 			j++;
+//// 			x++;
+//// 		}
+//// 		i++;
+//// 		y++;
+//// 	}
+//// 	while (slidecheck(board, tetr, size) == 1)
+//// 		slideleft(board, tetr, size);
+//// 	return (2);
+//// }
+
+// else if (shape[0][0] == '.')
+// {
+// 	i = pos / size;
+// 	j = pos % size;
+// 	x = 0;
+// 	y = 0;
+// 	while (shape[y][x] != tetr->letter)
+// 		x++;
+// 	while (i < tetr->height + i && y < tetr->height)
+// 	{
+// 		j = pos
+// 	}
+//int kostyl(t_tetr *tetr)
+//{
+//	if (tetr->height == 2 && tetr->width == 3)
+//		return (1);
+//	if (tetr->height == 3 && tetr->width == 2)
+//		return (1);
+//	return (0);
 //}
