@@ -8,6 +8,8 @@ char	**createboard(int s)
 	int j;
 	char **board;
 
+	i = 0;
+	j = 0;
 	if (!(board = (char **)malloc(sizeof(char *) * s)))
 		return (NULL);
 	while (i < s)
@@ -24,7 +26,7 @@ char	**createboard(int s)
 			board[i][j] = '.';
 			j++;
 		}
-		board[i][j + 1] = '\0';
+		board[i][j] = '\0';
 		i++;
 	}
 	return (board);

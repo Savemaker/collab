@@ -87,6 +87,9 @@
 		<Unit filename="/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h">
 			<Option target="myfillit"/>
 		</Unit>
+		<Unit filename="/Users/gbeqqo/mypcfor42/myfillit/sample">
+			<Option target="myfillit"/>
+		</Unit>
 		<Unit filename="/Users/gbeqqo/mypcfor42/myfillit/srcs/board.c">
 			<Option target="myfillit"/>
 		</Unit>
@@ -103,9 +106,6 @@
 			<Option target="myfillit"/>
 		</Unit>
 		<Unit filename="/Users/gbeqqo/mypcfor42/myfillit/srcs/reading.c">
-			<Option target="myfillit"/>
-		</Unit>
-		<Unit filename="/Users/gbeqqo/mypcfor42/myfillit/srcs/sample">
 			<Option target="myfillit"/>
 		</Unit>
 		<Unit filename="/Users/gbeqqo/mypcfor42/myfillit/srcs/slavastrdup.c">

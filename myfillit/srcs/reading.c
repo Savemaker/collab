@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:44:41 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/06 17:32:32 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/22 15:55:55 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ t_list		*reading(const int fd)
 	while ((ret = read(fd, buf, 21)) && ret != -1)
 	{
 		buf[ret] = '\0';
+		if (buf[0] == '\n')
+			stop();
 		if (a > 'Z')
 			stop();
 		if (buf[ret - 1] != '\n')
 			stop();
+		bufchecker(buf, a, ret);
 		head = createtr(buf, a++, ret);
 		push_end(&list, head);
 	}
@@ -60,7 +63,7 @@ void		ft_bzero(void *s, size_t n)
 	ft_memset(s, 0, n);
 }
 
-void	bufchecker(char *buf, char a)
+void	bufchecker(char *buf, char a, int ret)
 {
 	int n;
 	int d;
@@ -81,10 +84,10 @@ void	bufchecker(char *buf, char a)
 	}
 	if (d != 12 && l != 4)
 		stop();
-	nchecker(buf);
+	nchecker(buf, ret);
 }
 
-void	nchecker(char *buf)
+void	nchecker(char *buf, int ret)
 {
 	int flag;
 
@@ -96,6 +99,8 @@ void	nchecker(char *buf)
 	if (buf[14] != '\n')
 		flag = 1;
 	if (buf[19] != '\n')
+		flag = 1;
+	if (ret == 21 && buf[19] == '\n' && buf[20] == '\n' && buf[21] == '\n' && buf[22] == '\0')
 		flag = 1;
 	if (flag == 1)
 		stop();

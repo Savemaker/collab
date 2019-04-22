@@ -77,23 +77,31 @@ int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 	int x;
 	int y;
 	int c;
+	char **shape;
 
 	c = 0;
 	i = 0;
 	j = 0;
 	x = 0;
 	y = 0;
+	shape = tetr->shape;
 	i = pos / size;
 	j = pos % size;
-	while (i < size)
+	while (i < size && y < tetr->height)
 	{
 		j = pos % size;
-		while (j < size)
+		while (j < size && x < tetr->width)
 		{
-			if (board[i][j] == '.' && tetr->shape[y][x] == tetr->letter)
+			if (board[i][j] == '.' && shape[y][x] == tetr->letter)
+			{
 				c++;
+			}
 			j++;
 			x++;
+			if (x > tetr->width && c == 4) 
+				return (0);
+			if (x > tetr->width && c != 4)
+				return (1);
 		}
 		i++;
 		y++;
@@ -106,6 +114,7 @@ int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 
 int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 {
+	char **shape;
 	int i;
 	int j;
 	int x;
@@ -115,19 +124,22 @@ int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 	y = 0;
 	i = 0;
 	j = 0;
+	shape = tetr->shape;
 	i = pos / size;
 	if (boardchecker(board, size, tetr, pos) == 0)
 	{
-		while (i < size)
+		while (i < size && y < tetr->height)
 		{
 			j = pos % size;
-			while (j < size)
+			while (j < size && x < tetr->width)
 			{
-				if (tetr->shape[y][x] == tetr->letter) {
-					board[i][j] = tetr->shape[y][x];
+				if (shape[y][x] == tetr->letter) {
+					board[i][j] = shape[y][x];
 				}
 				j++;
 				x++;
+				if (x > tetr->width)
+					return (1);
 			}
 			i++;
 			y++;
@@ -136,72 +148,6 @@ int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 		return (2);
 	}
 	return (1);
-}
-
-int tryfillit(t_list *list, char **board, int size)
-{
-	int i;
-	int f;
-
-	f = 0;
-	i = addtoboard(board, size, list->content, list->pos);
-	while (i == 2)
-	{
-		list = list->next;
-		if (list == NULL)
-			break;
-		i = addtoboard(board, size, list->content, list->pos);
-		while (i == 1)
-		{
-			list->pos++;
-			if (list->pos > (size * size) - 1)
-			{
-				f = 1;
-				break;
-			}
-			i = addtoboard(board, size, list->content, list->pos);
-		}
-	}
-	return (f);
-}
-
-void	restorepos(t_list *list)
-{
-	while (list != NULL)
-	{
-		list->pos = 0;
-		list = list ->next;
-	}
-}
-
-void	correctplace(t_list *list)
-{
-	char **shape;
-	t_tetr *tetr;
-	int i;
-	int j;
-
-	tetr = list->content;
-	shape = tetr->shape;
-	i = 0;
-	j = 0;
-	while (shape[0][j] == '.' && j < 4)
-		j++;
-	list->pos = list->pos + j;
-}
-
-int checklist(t_list *list)
-{
-	t_list *head;
-
-	head = list;
-	while (head != NULL)
-	{
-		if (head->pos == -1)
-			return (-1);
-		head = head -> next;
-	}
-	return (0);
 }
 
 //void	fillit(t_list *list, char **board, int size)
@@ -251,24 +197,24 @@ int checklist(t_list *list)
 //	}
 //}
 
-void	swap(t_list **head)
-{
-	t_list *cur;
-	t_list *temp;
-	t_list *list;
-
-	cur = *head;
-	temp = *head; //tut pervaya
-	list = *head;
-
-	cur = cur->next;
-	list = cur;
-	*head = list;
-	while (list->next != NULL)
-		list = list->next;
-	list->next = temp;
-	temp->next = NULL;
-}
+//void	swap(t_list **head)
+//{
+//	t_list *cur;
+//	t_list *temp;
+//	t_list *list;
+//
+//	cur = *head;
+//	temp = *head; //tut pervaya
+//	list = *head;
+//
+//	cur = cur->next;
+//	list = cur;
+//	*head = list;
+//	while (list->next != NULL)
+//		list = list->next;
+//	list->next = temp;
+//	temp->next = NULL;
+//}
 
 int		checkpos(t_tetr *tetr)
 {

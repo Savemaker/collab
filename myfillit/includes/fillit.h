@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:31:09 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/15 20:28:25 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/22 15:32:36 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int					count(char **shape, int *i, int *j, char a);
 int					quantity(char **shape, char a);
 void				val(t_tetr *tetr);
 void				stop(void);
-void				bufchecker(char *buf, char a);
-void				nchecker(char *buf);
+void				bufchecker(char *buf, char a, int ret);
+void				nchecker(char *buf, int ret);
 int					desksize(t_list *list);
 char				**createboard(int s);
 int					checkmoveup(char **shape, char a);
@@ -79,10 +79,13 @@ int 				boardchecker(char **board, int size, t_tetr *tetr, int pos);
 void				switcheer(t_list **list);
 void				emptyboard(char **board, int size);
 int					checkpos(t_tetr *tetr);
-void				swap(t_list **head);
+void				swap(t_list **a, t_list **b);
+void				swap_swag(t_list **list);
 int					checklist(t_list *list);
 void				correctplace(t_list *list);
 void				restorepos(t_list *list);
-void				feedswapedlist(t_list **headref);
+size_t				factorial(size_t n);
+size_t				lenrec(t_list *list);
+int					fillit(t_list *list, char **board, int sizedesk);
 
 #endif

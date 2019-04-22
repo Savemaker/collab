@@ -43,32 +43,59 @@ int		width(char **shape, char a)
 {
 	int i;
 	int j;
-	int width;
-	int temp;
-	int res;
-
-	res = 0;
+	int c;
+	int t;
+	
+	t = 0;
+	c = 0;
 	i = 0;
-	temp = 0;
 	j = 0;
-	width = 0;
 	while (i < 4)
 	{
 		j = 0;
-		width = 0;
-		while (j < 5)
+		while (j < 4)
 		{
 			if (shape[i][j] == a)
-				width++;
+				c = j + 1;
 			j++;
 		}
-		if (width > temp)
-			temp = width;
+		if (c >= t)
+			t = c;
 		i++;
 	}
-	width > temp ? (res = width) : (res = temp);
-	return (res);
+	return (t);
 }
+
+//int		width(char **shape, char a)
+//{
+//	int i;
+//	int j;
+//	int width;
+//	int temp;
+//	int res;
+//
+//	res = 0;
+//	i = 0;
+//	temp = 0;
+//	j = 0;
+//	width = 0;
+//	while (i < 4)
+//	{
+//		j = 0;
+//		width = 0;
+//		while (j < 5)
+//		{
+//			if (shape[i][j] == a)
+//				width++;
+//			j++;
+//		}
+//		if (width > temp)
+//			temp = width;
+//		i++;
+//	}
+//	width > temp ? (res = width) : (res = temp);
+//	return (res);
+//}
 
 int		touch(char **shape, char a)
 {
