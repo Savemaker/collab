@@ -66,7 +66,7 @@ void				moveup(char **shape, char a, int h);
 int					needtomove(char **shape, char a);
 void				moveleft(char **shape, char a);
 int					pathfinder(char **shape, int l, char a);
-void				default_tet(char **board, char a);
+void				default_tet(char **board, char a, int size);
 int					addtoboard(char **board, int size, t_tetr *tetr, int pos);
 int					recursion(t_list *list, char **board, int size, int pos);
 int					tryfillit(t_list *list, char **board, int size);
@@ -86,6 +86,8 @@ void				correctplace(t_list *list);
 void				restorepos(t_list *list);
 size_t				factorial(size_t n);
 size_t				lenrec(t_list *list);
-int					fillit(t_list *list, char **board, int sizedesk);
+int					fillit(t_list *list, char **desk, int size);
+int					solver(t_list *list);
+int					adding(char **board, int size, t_list *list);
 
 #endif

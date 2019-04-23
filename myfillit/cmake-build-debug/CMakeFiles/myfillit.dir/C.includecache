@@ -16,7 +16,35 @@ stdlib.h
 fcntl.h
 -
 
+/Users/gbeqqo/mypcfor42/myfillit/srcs/board.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+
+/Users/gbeqqo/mypcfor42/myfillit/srcs/lib.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+
+/Users/gbeqqo/mypcfor42/myfillit/srcs/listfunc.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+
 /Users/gbeqqo/mypcfor42/myfillit/srcs/main.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+
+/Users/gbeqqo/mypcfor42/myfillit/srcs/reading.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+
+/Users/gbeqqo/mypcfor42/myfillit/srcs/slavastrdup.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+
+/Users/gbeqqo/mypcfor42/myfillit/srcs/solving.c
+../includes/fillit.h
+/Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
+
+/Users/gbeqqo/mypcfor42/myfillit/srcs/validation.c
 ../includes/fillit.h
 /Users/gbeqqo/mypcfor42/myfillit/includes/fillit.h
 

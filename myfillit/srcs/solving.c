@@ -15,52 +15,73 @@
 int		desksize(t_list *list)
 {
 	int i;
-	int n;
 	t_tetr *tetr;
-	t_list *temp;
+	i = 2;
+	int fig_count;
 
-	i = 0;
-	n = 0;
-	temp = list;
-	while (list)
+	fig_count = 0;
+	fig_count =listlen(list);
+
+	tetr = list->content;
+	if (fig_count == 1)
 	{
-		n++;
-		list = list -> next;
-	}
-	if (n == 1)
-	{
-		tetr = temp ->content;
-		if (tetr->height == 2 && tetr-> width == 2)
-			return (2);
-		else if (tetr->height == 4 || tetr->width == 4)
+		if (tetr->width == 4 || tetr->height == 4)
 			return (4);
-		else if (tetr->height == 3 || tetr->width == 3)
+		if (tetr->width == 3 || tetr->height == 3)
 			return (3);
+		if (tetr->width == 2 || tetr->height == 2)
+			return (2);
 	}
-	else if (n > 1)
-	{
-		n = n * 4;
-		while (i < n)
-		{
-			if (i * i >= n && i > 3)
-				return (i);
-			i++;
-		}
-	}
-	return (0);
+	while (i * i < fig_count * 4)
+		i++;
+	return (i);
+//	int i;
+//	int n;
+//	t_tetr *tetr;
+//	t_list *temp;
+//
+//	i = 0;
+//	n = 0;
+//	temp = list;
+//	while (list)
+//	{
+//		n++;
+//		list = list -> next;
+//	}
+//	if (n == 1)
+//	{
+//		tetr = temp ->content;
+//		if (tetr->height == 2 && tetr-> width == 2)
+//			return (2);
+//		else if (tetr->height == 4 || tetr->width == 4)
+//			return (4);
+//		else if (tetr->height == 3 || tetr->width == 3)
+//			return (3);
+//	}
+//	else if (n > 1)
+//	{
+//		n = n * 4;
+//		while (i < n)
+//		{
+//			if (i * i >= n && i > 3)
+//				return (i);
+//			i++;
+//		}
+//	}
+//	return (0);
 }
 
-void	default_tet(char **board, char a)
+void	default_tet(char **board, char a, int size)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	while (i < 4)
+	while (i < size)
 	{
 		j = 0;
-		while (j < 4)
+		while (j < size)
 		{
 			if (board[i][j] == a)
 				board[i][j] = '.';
@@ -77,14 +98,12 @@ int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 	int x;
 	int y;
 	int c;
-	char **shape;
 
 	c = 0;
 	i = 0;
 	j = 0;
 	x = 0;
 	y = 0;
-	shape = tetr->shape;
 	i = pos / size;
 	j = pos % size;
 	while (i < size && y < tetr->height)
@@ -92,7 +111,7 @@ int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 		j = pos % size;
 		while (j < size && x < tetr->width)
 		{
-			if (board[i][j] == '.' && shape[y][x] == tetr->letter)
+			if (board[i][j] == '.' && tetr->shape[y][x] == tetr->letter)
 			{
 				c++;
 			}
@@ -114,7 +133,6 @@ int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 
 int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 {
-	char **shape;
 	int i;
 	int j;
 	int x;
@@ -124,17 +142,16 @@ int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 	y = 0;
 	i = 0;
 	j = 0;
-	shape = tetr->shape;
 	i = pos / size;
-	if (boardchecker(board, size, tetr, pos) == 0)
+	if (!(boardchecker(board, size, tetr, pos)))
 	{
 		while (i < size && y < tetr->height)
 		{
 			j = pos % size;
 			while (j < size && x < tetr->width)
 			{
-				if (shape[y][x] == tetr->letter) {
-					board[i][j] = shape[y][x];
+				if (tetr->shape[y][x] == tetr->letter) {
+					board[i][j] = tetr->shape[y][x];
 				}
 				j++;
 				x++;
@@ -145,7 +162,7 @@ int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 			y++;
 			x = 0;
 		}
-		return (2);
+		return (0);
 	}
 	return (1);
 }
