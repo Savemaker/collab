@@ -1,12 +1,22 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   board.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/24 17:36:48 by gbeqqo            #+#    #+#             */
+/*   Updated: 2019/04/24 17:38:13 by gbeqqo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
 char	**createboard(int s)
 {
-	int i;
-	int j;
-	char **board;
+	int		i;
+	int		j;
+	char	**board;
 
 	i = 0;
 	j = 0;
@@ -23,8 +33,7 @@ char	**createboard(int s)
 		j = 0;
 		while (j < s)
 		{
-			board[i][j] = '.';
-			j++;
+			board[i][j++] = '.';
 		}
 		board[i][j] = '\0';
 		i++;
@@ -32,7 +41,7 @@ char	**createboard(int s)
 	return (board);
 }
 
-void freeboard(char **board, int size)
+void	freeboard(char **board, int size)
 {
 	int i;
 

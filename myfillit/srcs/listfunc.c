@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 14:03:43 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/22 15:32:23 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/24 17:44:13 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 	return (new);
 }
 
-int		listlen(t_list *list)
+int			listlen(t_list *list)
 {
 	int n;
 
@@ -65,19 +65,18 @@ t_list		*createtr(char *buf, char a, int ret)
 	moveup(tetrimino.shape, a, tetrimino.height);
 	tetrimino.width = width(tetrimino.shape, a);
 	val(&tetrimino);
-
 	head = ft_lstnew(&tetrimino, sizeof(tetrimino));
 	head->pos = 0;
-	correctplace(head);
 	head->content_size = 0;
 	return (head);
 }
-void	moveleft(char **shape, char a)
+
+void		moveleft(char **shape, char a)
 {
-	int i;
-	int j;
-	int move;
-	char temp;
+	int		i;
+	int		j;
+	int		move;
+	char	temp;
 
 	i = 0;
 	j = 0;
@@ -92,7 +91,7 @@ void	moveleft(char **shape, char a)
 		{
 			if (shape[i][j] == a)
 			{
-				shape[i][j-move] = shape[i][j];
+				shape[i][j - move] = shape[i][j];
 				shape[i][j] = '.';
 			}
 			j++;
@@ -101,7 +100,7 @@ void	moveleft(char **shape, char a)
 	}
 }
 
-int		needtomove(char **shape, char a)
+int			needtomove(char **shape, char a)
 {
 	int i;
 	int j;
@@ -131,7 +130,7 @@ int		needtomove(char **shape, char a)
 	return (space);
 }
 
-void	moveup(char **shape, char a, int h)
+void		moveup(char **shape, char a, int h)
 {
 	int s;
 	int i;
@@ -179,19 +178,19 @@ void	moveup(char **shape, char a, int h)
 	}
 }
 
-void	default_line(char *line)
+void		default_line(char *line)
 {
 	int i;
 
 	i = 0;
-	while(line[i] != '\0')
+	while (line[i] != '\0')
 	{
 		line[i] = '.';
 		i++;
 	}
 }
 
-int		checkmoveup(char **shape, char a)
+int			checkmoveup(char **shape, char a)
 {
 	int i;
 	int j;

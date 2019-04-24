@@ -31,11 +31,11 @@ t_list		*reading(const int fd)
 			stop();
 		if (buf[ret - 1] != '\n')
 			stop();
-		bufchecker(buf, a, ret);
 		head = createtr(buf, a++, ret);
 		push_end(&list, head);
 	}
-
+	if (list == NULL || buf[20] == '\n')
+		stop();
 	return (list);
 }
 
@@ -77,12 +77,12 @@ void	bufchecker(char *buf, char a, int ret)
 	while (buf[i] != '\0')
 	{
 		if (buf[i] == '.')
-			d++;
-		if (buf[i] == a)
-			l++;
+			d += 1;
+		if (buf[i] == '#')
+			l += 1;
 		i++;
 	}
-	if (d != 12 && l != 4)
+	if (d != 12 || l != 4)
 		stop();
 	nchecker(buf, ret);
 }
