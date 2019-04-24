@@ -1,30 +1,36 @@
 NAME = fillit
+SRC = srcs/cleaning.c \
+	srcs/creation.c  \
+	srcs/desk.c \
+	srcs/listfunc.c \
+	srcs/main.c \
+	srcs/reading.c \
+	srcs/solving.c \
+	srcs/validation.c
 
-SRC = ./srcs/*.c
+OBJ   = $(SRC:.c=.o)
 
-OBJ = $(SRC:.c=.o)
-
-HEADER = ./includes/fillit.h
-
-LIB_NAME = libft
-
-LIB_HEADER = ./libft/libft.h
-
-FLAGS = -Wall -Wextra -Werror
+LIB_DIR  = libft/
+LIBFT   = libft/libft.a
+LIB_INCS  = libft/includes
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAGS) -I $(LIB_HEADER) -c $(SRC)
-	make -C $(LIB_NAME) re
-	gcc $(FLAGS) -I $(HEADER) $(SRC) -L $(LIB_NAME) -lft -o $(NAME)
+$(NAME): $(LIBFT) $(OBJ)
+	gcc $(FLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+
+$(LIBFT):
+	make -C $(LIB_DIR)
+
+%.o: %.c $(HEADER) Makefile
+	gcc $(FLAGS) -I$(LIB_INCS) -c $< -o $@
 
 clean:
-	#make clean -C $(LIB_NAME)
+	make -C libft/ clean
 	rm -f $(OBJ)
 
 fclean: clean
-	#make -C $(LIB_NAME) fclean
+	make -C libft/ fclean
 	rm -f $(NAME)
 
-re:	fclean all
+re: fclean all
