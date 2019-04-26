@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 17:48:41 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/07 00:48:15 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/26 17:15:47 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		width(char **shape, char a)
 	int j;
 	int c;
 	int t;
-	
+
 	t = 0;
 	c = 0;
 	i = 0;
@@ -82,7 +82,7 @@ int		touch(char **shape, char a)
 		j = 0;
 		while (j < 4)
 		{
-			y = count(shape, &i, &j ,a);
+			y = count(shape, &i, &j, a);
 			t = y + t;
 			j++;
 		}
@@ -90,7 +90,6 @@ int		touch(char **shape, char a)
 	}
 	return (t);
 }
-
 
 void	stop(void)
 {
@@ -113,22 +112,22 @@ int		count(char **shape, int *y, int *x, char a)
 		{
 			if (shape[i - 1][j] == a)
 				t += 1;
-			if (shape[i][j+1] == a)
+			if (shape[i][j + 1] == a)
 				t += 1;
 			if (j > 0 && shape[i][j - 1] == a)
 				t += 1;
 		}
 		else
-			{	
-				if (shape[i][j +1] == a)
-						t +=1;
-				if (j > 0 && shape[i][j - 1] == a)
-						t+=1;
-				if (i > 0 && shape[i-1][j] == a)
-						t += 1;
-				if (shape[i + 1][j] == a)
-						t+=1;
-			}
+		{
+			if (shape[i][j + 1] == a)
+				t += 1;
+			if (j > 0 && shape[i][j - 1] == a)
+				t += 1;
+			if (i > 0 && shape[i - 1][j] == a)
+				t += 1;
+			if (shape[i + 1][j] == a)
+				t += 1;
+		}
 	}
 	return (t);
 }
@@ -156,7 +155,7 @@ int		quantity(char **shape, char a)
 	return (c);
 }
 
-void		val(t_tetr *tetr)
+void	val(t_tetr *tetr)
 {
 	int t;
 	int q;

@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:31:09 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/22 15:32:36 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/26 15:50:36 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void				bufchecker(char *buf, char a, int ret);
 void				nchecker(char *buf, int ret);
 int					desksize(t_list *list);
 char				**createboard(int s);
-int					checkmoveup(char **shape, char a);
+int					checkmoveup(char **shape, char a, int i, int j);
 void				default_line(char *line);
 void				moveup(char **shape, char a, int h);
-int					needtomove(char **shape, char a);
+int					needtomove(char **shape, char a, int i, int j);
 void				moveleft(char **shape, char a);
 void				default_tet(char **board, char a, int size);
 int					addtoboard(char **board, int size, t_tetr *tetr, int pos);

@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 14:03:43 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/24 17:44:13 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/26 15:51:20 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		moveleft(char **shape, char a)
 	i = 0;
 	j = 0;
 	move = 0;
-	move = needtomove(shape, a);
+	move = needtomove(shape, a, 0, 0);
 	if (move == 0)
 		return ;
 	while (i < 4)
@@ -100,10 +100,8 @@ void		moveleft(char **shape, char a)
 	}
 }
 
-int			needtomove(char **shape, char a)
+int			needtomove(char **shape, char a, int i, int j)
 {
-	int i;
-	int j;
 	int n;
 	int space;
 
@@ -139,7 +137,7 @@ void		moveup(char **shape, char a, int h)
 	s = 0;
 	i = 0;
 	j = 0;
-	s = checkmoveup(shape, a);
+	s = checkmoveup(shape, a, 0, 0);
 	if (s == 3)
 	{
 		ft_memcpy(shape[0], shape[3], 4);
@@ -190,17 +188,13 @@ void		default_line(char *line)
 	}
 }
 
-int			checkmoveup(char **shape, char a)
+int			checkmoveup(char **shape, char a, int i, int j)
 {
-	int i;
-	int j;
 	int f;
 	int space;
 
 	space = 0;
 	f = 0;
-	i = 0;
-	j = 0;
 	while (i < 4)
 	{
 		j = 0;

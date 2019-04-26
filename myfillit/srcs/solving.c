@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 19:59:38 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/15 21:27:46 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/26 15:58:23 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int		desksize(t_list *list)
 {
-	int i;
-	t_tetr *tetr;
+	int		i;
+	t_tetr	*tetr;
+	int		fig_count;
+
 	i = 2;
-	int fig_count;
-
 	fig_count = 0;
-	fig_count =listlen(list);
-
+	fig_count = listlen(list);
 	tetr = list->content;
 	if (fig_count == 1)
 	{
@@ -57,7 +56,7 @@ void	default_tet(char **board, char a, int size)
 	}
 }
 
-int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
+int		boardchecker(char **board, int size, t_tetr *tetr, int pos)
 {
 	int i;
 	int j;
@@ -83,7 +82,7 @@ int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 			}
 			j++;
 			x++;
-			if (x > tetr->width && c == 4) 
+			if (x > tetr->width && c == 4)
 				return (0);
 			if (x > tetr->width && c != 4)
 				return (1);
@@ -97,7 +96,7 @@ int 	boardchecker(char **board, int size, t_tetr *tetr, int pos)
 	return (1);
 }
 
-int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
+int		addtoboard(char **board, int size, t_tetr *tetr, int pos)
 {
 	int i;
 	int j;
@@ -116,7 +115,8 @@ int 	addtoboard(char **board, int size, t_tetr *tetr, int pos)
 			j = pos % size;
 			while (j < size && x < tetr->width)
 			{
-				if (tetr->shape[y][x] == tetr->letter) {
+				if (tetr->shape[y][x] == tetr->letter)
+				{
 					board[i][j] = tetr->shape[y][x];
 				}
 				j++;
