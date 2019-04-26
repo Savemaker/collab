@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 19:59:38 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 15:58:23 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/26 17:40:09 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ int		desksize(t_list *list)
 	return (i);
 }
 
-void	default_tet(char **board, char a, int size)
+void	default_tet(char **board, t_list *list, int size)
 {
 	int i;
 	int j;
+	t_tetr *tetr;
 
+	tetr = list->content;
 	i = 0;
 	j = 0;
 	while (i < size)
@@ -48,7 +50,7 @@ void	default_tet(char **board, char a, int size)
 		j = 0;
 		while (j < size)
 		{
-			if (board[i][j] == a)
+			if (board[i][j] == tetr->letter)
 				board[i][j] = '.';
 			j++;
 		}

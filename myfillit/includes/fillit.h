@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:31:09 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 15:50:36 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/26 17:39:55 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void				default_line(char *line);
 void				moveup(char **shape, char a, int h);
 int					needtomove(char **shape, char a, int i, int j);
 void				moveleft(char **shape, char a);
-void				default_tet(char **board, char a, int size);
+void				default_tet(char **board, t_list *list, int size);
 int					addtoboard(char **board, int size, t_tetr *tetr, int pos);
 int					listlen(t_list *list);
 void				freeboard(char **board, int size);

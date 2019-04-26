@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:30:54 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 17:33:22 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/26 17:41:01 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,8 @@ int			solver(t_list *list)
 int			fillit(t_list *list, char **desk, int size)
 {
 	int		a;
-	t_tetr	*tetr;
 
 	a = 0;
-	tetr = list->content;
 	while (list->pos < size * size)
 	{
 		a = adding(desk, size, list);
@@ -66,13 +64,13 @@ int			fillit(t_list *list, char **desk, int size)
 			return (0);
 		else
 		{
-			a = addtoboard(desk, size, tetr, list->pos);
+			a = addtoboard(desk, size, list->content, list->pos);
 			if (list->next != NULL)
 			{
 				a = fillit(list->next, desk, size);
 				if (a == 0)
 				{
-					default_tet(desk, tetr->letter, size);
+					default_tet(desk, list, size);
 					list->pos += 1;
 					list->next->pos = 0;
 				}
