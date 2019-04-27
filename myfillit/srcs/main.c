@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:30:54 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 17:41:01 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/27 16:24:23 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,15 @@ int			main(int argc, char **argv)
 	int		e;
 
 	e = 0;
-	fd = open(argv[1], O_RDONLY);
-	list = reading(fd);
-	e = solver(list);
-	deletelist(&list);
+	if (argc == 2)
+	{
+		fd = open(argv[1], O_RDONLY);
+		list = reading(fd);
+		e = solver(list);
+		deletelist(&list);
+	}
+	else
+		write(1, "usage: ./fillit source_file\n", 28);
 	return (0);
 }
 
@@ -35,7 +40,7 @@ int			solver(t_list *list)
 	i = 0;
 	size = desksize(list);
 	desk = createboard(size);
-	while (!(fillit(list, desk, size)))
+	while (!(fillit(list, desk, size, 0)))
 	{
 		emptyboard(desk, size);
 		freeboard(desk, size);
@@ -44,44 +49,9 @@ int			solver(t_list *list)
 			return (0);
 		restorepos(list);
 	}
-	while (i < size)
-	{
-		printf("%s\n", desk[i++]);
-	}
+	printdesk(desk, size);
 	freeboard(desk, size);
 	return (1);
-}
-
-int			fillit(t_list *list, char **desk, int size)
-{
-	int		a;
-
-	a = 0;
-	while (list->pos < size * size)
-	{
-		a = adding(desk, size, list);
-		if (a == 1)
-			return (0);
-		else
-		{
-			a = addtoboard(desk, size, list->content, list->pos);
-			if (list->next != NULL)
-			{
-				a = fillit(list->next, desk, size);
-				if (a == 0)
-				{
-					default_tet(desk, list, size);
-					list->pos += 1;
-					list->next->pos = 0;
-				}
-				else
-					return (1);
-			}
-			else
-				return (1);
-		}
-	}
-	return (0);
 }
 
 int			adding(char **board, int size, t_list *list)

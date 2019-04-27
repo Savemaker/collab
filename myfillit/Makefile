@@ -1,20 +1,30 @@
 NAME = fillit
+SRC = srcs/board.c \
+	srcs/fillit.c \
+	srcs/lib.c \
+	srcs/listfunc.c \
+	srcs/main.c \
+	srcs/reading.c \
+	srcs/slavastrdup.c \
+	srcs/solving.c \
+	srcs/validation.c \
+	srcs/addone.c \
+	srcs/addtwo.c
 
-SRC = ./srcs/main.c ./srcs/reading.c ./srcs/listfunc.c ./srcs/lib.c ./srcs/slavastrdup.c \
-	./srcs/validation.c ./srcs/solving.c ./srcs/board.c
-OBJ = $(SRC:.c=.o)
+OBJ   = $(SRC:.c=.o)
 
-HEADER = ../includes/fillit.h
+all: $(NAME)
 
-all:	&(NAME)
+$(NAME): $(OBJ)
+	gcc $(FLAGS) -o $(NAME) $(OBJ)
 
-&(NAME): $(OBJ)
-	gcc -g -Wall -Werror -Wextra -o $(NAME) $(OBJ)
+%.o: %.c $(HEADER) Makefile
+	gcc $(FLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
-re:	fclean all
+re: fclean all

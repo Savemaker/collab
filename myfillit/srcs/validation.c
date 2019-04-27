@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 17:48:41 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 17:15:47 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/27 16:13:15 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,95 +66,6 @@ int		width(char **shape, char a)
 	return (t);
 }
 
-int		touch(char **shape, char a)
-{
-	int i;
-	int j;
-	int t;
-	int y;
-
-	y = 0;
-	i = 0;
-	j = 0;
-	t = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			y = count(shape, &i, &j, a);
-			t = y + t;
-			j++;
-		}
-		i++;
-	}
-	return (t);
-}
-
-void	stop(void)
-{
-	write(1, "error\n", 6);
-	exit(0);
-}
-
-int		count(char **shape, int *y, int *x, char a)
-{
-	int t;
-	int i;
-	int j;
-
-	i = *y;
-	j = *x;
-	t = 0;
-	if (shape[i][j] == a)
-	{
-		if (i == 3)
-		{
-			if (shape[i - 1][j] == a)
-				t += 1;
-			if (shape[i][j + 1] == a)
-				t += 1;
-			if (j > 0 && shape[i][j - 1] == a)
-				t += 1;
-		}
-		else
-		{
-			if (shape[i][j + 1] == a)
-				t += 1;
-			if (j > 0 && shape[i][j - 1] == a)
-				t += 1;
-			if (i > 0 && shape[i - 1][j] == a)
-				t += 1;
-			if (shape[i + 1][j] == a)
-				t += 1;
-		}
-	}
-	return (t);
-}
-
-int		quantity(char **shape, char a)
-{
-	int i;
-	int	j;
-	int c;
-
-	i = 0;
-	j = 0;
-	c = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (shape[i][j] == a)
-				c++;
-			j++;
-		}
-		i++;
-	}
-	return (c);
-}
-
 void	val(t_tetr *tetr)
 {
 	int t;
@@ -171,4 +82,32 @@ void	val(t_tetr *tetr)
 	}
 	else if (q == 4 && t != 6)
 		stop();
+}
+
+void	trim(char **bufnew, char *buf, char a)
+{
+	char	*new;
+	int		i;
+	int		j;
+	int		c;
+
+	j = 0;
+	i = 0;
+	c = 0;
+	new = *bufnew;
+	while (j < 16)
+	{
+		if (buf[c] == '#')
+		{
+			new[i++] = a;
+			j++;
+		}
+		else if (buf[c] == '.')
+		{
+			new[i++] = '.';
+			j++;
+		}
+		c++;
+	}
+	new[i] = '\0';
 }

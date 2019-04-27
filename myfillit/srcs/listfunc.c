@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 14:03:43 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 15:51:20 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/27 16:12:39 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,153 +65,15 @@ t_list		*createtr(char *buf, char a, int ret)
 	moveup(tetrimino.shape, a, tetrimino.height);
 	tetrimino.width = width(tetrimino.shape, a);
 	val(&tetrimino);
+	tetrimino.i = 0;
+	tetrimino.j = 0;
+	tetrimino.x = 0;
+	tetrimino.c = 0;
+	tetrimino.y = 0;
 	head = ft_lstnew(&tetrimino, sizeof(tetrimino));
 	head->pos = 0;
 	head->content_size = 0;
 	return (head);
-}
-
-void		moveleft(char **shape, char a)
-{
-	int		i;
-	int		j;
-	int		move;
-	char	temp;
-
-	i = 0;
-	j = 0;
-	move = 0;
-	move = needtomove(shape, a, 0, 0);
-	if (move == 0)
-		return ;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (shape[i][j] == a)
-			{
-				shape[i][j - move] = shape[i][j];
-				shape[i][j] = '.';
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-int			needtomove(char **shape, char a, int i, int j)
-{
-	int n;
-	int space;
-
-	i = 0;
-	j = 0;
-	n = 0;
-	space = 0;
-	while (j < 4)
-	{
-		i = 0;
-		n = 0;
-		while (i < 4)
-		{
-			if (shape[i][j] == '.')
-				n++;
-			else if (shape[i][j] == a)
-				return (space);
-			i++;
-		}
-		if (n == 4)
-			++space;
-		j++;
-	}
-	return (space);
-}
-
-void		moveup(char **shape, char a, int h)
-{
-	int s;
-	int i;
-	int j;
-
-	s = 0;
-	i = 0;
-	j = 0;
-	s = checkmoveup(shape, a, 0, 0);
-	if (s == 3)
-	{
-		ft_memcpy(shape[0], shape[3], 4);
-		default_line(shape[3]);
-	}
-	else if (s == 2)
-	{
-		ft_memcpy(shape[0], shape[2], 4);
-		ft_memcpy(shape[1], shape[3], 4);
-		default_line(shape[2]);
-		default_line(shape[3]);
-	}
-	else if (s == 1)
-	{
-		if (h == 1)
-		{
-			ft_memcpy(shape[0], shape[1], 4);
-			default_line(shape[1]);
-		}
-		else if (h == 2)
-		{
-			ft_memcpy(shape[0], shape[1], 4);
-			default_line(shape[1]);
-			ft_memcpy(shape[1], shape[2], 4);
-			default_line(shape[2]);
-		}
-		else if (h == 3)
-		{
-			ft_memcpy(shape[0], shape[1], 4);
-			default_line(shape[1]);
-			ft_memcpy(shape[1], shape[2], 4);
-			default_line(shape[2]);
-			ft_memcpy(shape[2], shape[3], 4);
-			default_line(shape[3]);
-		}
-	}
-}
-
-void		default_line(char *line)
-{
-	int i;
-
-	i = 0;
-	while (line[i] != '\0')
-	{
-		line[i] = '.';
-		i++;
-	}
-}
-
-int			checkmoveup(char **shape, char a, int i, int j)
-{
-	int f;
-	int space;
-
-	space = 0;
-	f = 0;
-	while (i < 4)
-	{
-		j = 0;
-		f = 0;
-		while (j < 4)
-		{
-			if (shape[i][j] == '.')
-				f++;
-			else if (shape[i][j] == a)
-				return (space);
-			j++;
-		}
-		if (f == 4)
-			++space;
-		i++;
-	}
-	return (space);
 }
 
 char		**createshape(char *buf, char a, int ret)
@@ -241,34 +103,6 @@ char		**createshape(char *buf, char a, int ret)
 	}
 	free(newbuf);
 	return (shape);
-}
-
-void		trim(char **bufnew, char *buf, char a)
-{
-	char	*new;
-	int		i;
-	int		j;
-	int		c;
-
-	j = 0;
-	i = 0;
-	c = 0;
-	new = *bufnew;
-	while (j < 16)
-	{
-		if (buf[c] == '#')
-		{
-			new[i++] = a;
-			j++;
-		}
-		else if (buf[c] == '.')
-		{
-			new[i++] = '.';
-			j++;
-		}
-		c++;
-	}
-	new[i] = '\0';
 }
 
 void		deletelist(t_list **headref)

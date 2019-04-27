@@ -6,14 +6,13 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 14:31:09 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 17:39:55 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/27 16:22:34 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include <stdio.h> //alouberipotomokbby
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -30,6 +29,11 @@ typedef struct		s_tetr{
 	int				width;
 	char			letter;
 	char			**shape;
+	int				i;
+	int				j;
+	int				c;
+	int				x;
+	int				y;
 }					t_tetr;
 
 t_list				*reading(const int fd);
@@ -67,12 +71,14 @@ void				default_tet(char **board, t_list *list, int size);
 int					addtoboard(char **board, int size, t_tetr *tetr, int pos);
 int					listlen(t_list *list);
 void				freeboard(char **board, int size);
-int 				boardchecker(char **board, int size, t_tetr *tetr, int pos);
+int					boardchecker(char **board, int size, t_tetr *tetr, int pos);
 void				emptyboard(char **board, int size);
 void				restorepos(t_list *list);
 size_t				factorial(size_t n);
-int					fillit(t_list *list, char **desk, int size);
+int					fillit(t_list *list, char **desk, int size, int a);
 int					solver(t_list *list);
 int					adding(char **board, int size, t_list *list);
+void				ass(char **shape, int h);
+void				printdesk(char **desk, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 19:59:38 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/04/26 17:40:09 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/04/27 15:44:51 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int		desksize(t_list *list)
 
 void	default_tet(char **board, t_list *list, int size)
 {
-	int i;
-	int j;
-	t_tetr *tetr;
+	int		i;
+	int		j;
+	t_tetr	*tetr;
 
 	tetr = list->content;
 	i = 0;
@@ -58,77 +58,58 @@ void	default_tet(char **board, t_list *list, int size)
 	}
 }
 
-int		boardchecker(char **board, int size, t_tetr *tetr, int pos)
+int		boardchecker(char **board, int size, t_tetr *t, int pos)
 {
 	int i;
-	int j;
-	int x;
-	int y;
-	int c;
 
-	c = 0;
-	i = 0;
-	j = 0;
-	x = 0;
-	y = 0;
 	i = pos / size;
-	j = pos % size;
-	while (i < size && y < tetr->height)
+	t->c = 0;
+	t->y = 0;
+	while (i < size && t->y < t->height)
 	{
-		j = pos % size;
-		while (j < size && x < tetr->width)
+		t->j = pos % size;
+		while (t->j < size && t->x < t->width)
 		{
-			if (board[i][j] == '.' && tetr->shape[y][x] == tetr->letter)
-			{
-				c++;
-			}
-			j++;
-			x++;
-			if (x > tetr->width && c == 4)
+			if (board[i][t->j] == '.' && t->shape[t->y][t->x] == t->letter)
+				t->c += 1;
+			t->j++;
+			t->x++;
+			if (t->x > t->width && t->c == 4)
 				return (0);
-			if (x > tetr->width && c != 4)
+			if (t->x > t->width && t->c != 4)
 				return (1);
 		}
 		i++;
-		y++;
-		x = 0;
+		t->y++;
+		t->x = 0;
 	}
-	if (c == 4)
-		return (0);
-	return (1);
+	t->c = t->c == 4 ? 0 : 1;
+	return (t->c);
 }
 
 int		addtoboard(char **board, int size, t_tetr *tetr, int pos)
 {
-	int i;
-	int j;
-	int x;
 	int y;
 
-	x = 0;
 	y = 0;
-	i = 0;
-	j = 0;
-	i = pos / size;
+	tetr->i = pos / size;
 	if (!(boardchecker(board, size, tetr, pos)))
 	{
-		while (i < size && y < tetr->height)
+		while (tetr->i < size && y < tetr->height)
 		{
-			j = pos % size;
-			while (j < size && x < tetr->width)
+			tetr->j = pos % size;
+			while (tetr->j < size && tetr->x < tetr->width)
 			{
-				if (tetr->shape[y][x] == tetr->letter)
-				{
-					board[i][j] = tetr->shape[y][x];
-				}
-				j++;
-				x++;
-				if (x > tetr->width)
+				if (tetr->shape[y][tetr->x] == tetr->letter)
+					board[tetr->i][tetr->j] = tetr->shape[y][tetr->x];
+				tetr->j++;
+				tetr->x++;
+				if (tetr->x > tetr->width)
 					return (1);
 			}
-			i++;
+			tetr->i++;
 			y++;
-			x = 0;
+			tetr->x = 0;
 		}
 		return (0);
 	}
