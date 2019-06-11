@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="fiilit___"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/katherine/Desktop/fiilit  на сдачу/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/katherine/Desktop/fiilit  на сдачу/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/katherine/Desktop/fiilit  на сдачу/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fiilit___">
+				<Option output="/Users/katherine/Desktop/fiilit  на сдачу/cmake-build-debug/fiilit___" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/katherine/Desktop/fiilit  на сдачу/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/katherine/Desktop/fiilit  на сдачу/includes"/>
+					<Add directory="/Users/katherine/Desktop/fiilit  на сдачу/libft"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 fiilit___"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fiilit___/fast">
+				<Option output="/Users/katherine/Desktop/fiilit  на сдачу/cmake-build-debug/fiilit___" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/katherine/Desktop/fiilit  на сдачу/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/katherine/Desktop/fiilit  на сдачу/includes"/>
+					<Add directory="/Users/katherine/Desktop/fiilit  на сдачу/libft"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 fiilit___/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/fiilit\ \ на\ сдачу/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/includes/fill.h">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_atoi.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_bzero.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_isalnum.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_isalpha.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_isascii.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_isdigit.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_isprint.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_isspace.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_itoa.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_lstadd.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_lstdel.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_lstdelone.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_lstiter.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_lstmap.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_lstnew.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memalloc.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memccpy.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memchr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memcmp.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memcpy.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memdel.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memmove.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_memset.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putchar.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putchar_fd.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putendl.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putendl_fd.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putnbr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putnbr_fd.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putstr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_putstr_fd.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_str_is_printable.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strcapitalize.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strcat.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strchr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strclr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strcmp.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strcpy.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strdel.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strdup.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strequ.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_striter.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_striteri.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strjoin.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strlcat.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strlen.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strlowcase.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strmap.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strmapi.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strncat.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strncmp.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strncpy.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strnequ.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strnew.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strnstr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strrchr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strsplit.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strstr.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strsub.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strtrim.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_strupcase.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_tolower.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/ft_toupper.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/get_next_line.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/libft/libft.h">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/cleaning.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/creation.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/desk.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/listfunc.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/main.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/reading.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/solving.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/srcs/validation.c">
+			<Option target="fiilit___"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/fiilit  на сдачу/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
