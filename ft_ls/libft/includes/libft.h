@@ -21,6 +21,7 @@
 typedef struct		s_list
 {
 	char			*name;
+	char			*content;
 	size_t			content_size;
 	struct s_list	*next;
 	struct s_list	*prev;
