@@ -23,10 +23,11 @@ typedef struct		s_list
 	char			*name;
 	char			*content;
 	size_t			content_size;
+	char			*path;
 	struct s_list	*next;
 	struct s_list	*prev;
-	int				h;
-	char			*path;
+	int				error;  //1 = yes
+	
 }					t_list;
 
 void				*ft_memset(void *b, int c, size_t len);

@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "libft/includes/libft.h"
 #include <dirent.h>
 #include <stdio.h>
 #include <sys/stat.h>
@@ -55,6 +55,7 @@ t_list  *create_node(char *name, char *path)
 		return (NULL);
 	new->name = ft_strdup(name);
 	new->path = create_path(name, path);
+	new->error = 0;
 	new->next = NULL;
     new->prev = NULL;
     return (new);
@@ -199,7 +200,18 @@ void	merge_sorting(t_list **list)
 	*list = merge(a, b);
 }
 
-void    output_base_path(char *path)
+void	multiple_print(char *path)
+{
+	int i;
+
+	i = 0;
+	while (path[i])
+		write(1, &path[i++], 1);
+	write(1, ":\n", 2);
+	
+}
+
+void    output_base_path(char *path, int f)
 {
 	DIR *dir;
 	struct dirent *d;
@@ -207,7 +219,11 @@ void    output_base_path(char *path)
 	t_list *node;
 
 	head = NULL;
-	dir = check_open(path);
+	dir = opendir(path);
+	if (dir == NULL)
+		return ;
+	if (f == 1)
+	 	multiple_print(path);
 	while ((d = readdir(dir)) != NULL)
 	{
 		if (no_dots(d->d_name))
@@ -218,15 +234,69 @@ void    output_base_path(char *path)
 	}
 	merge_sorting(&head);
 	print_list(head);
+	closedir(dir);
+}
+
+void	output_errors(t_list *list)
+{
+	DIR *dir;
+
+	while (list)
+	{
+		if (list != NULL)
+		{
+			dir = check_open(list->name);
+			if (dir == NULL)
+			{
+				list->error = 1;
+				list = list->next;
+			}
+			else
+			{
+				closedir(dir);
+				list = list->next;
+			}
+		}
+	}
 }
 
 int main(int argc, char **argv)
 {
+	int i;
+	t_list *list;
+	t_list *head;
+
+	head = NULL;
+	i = 1;
 	if (argc == 1)
 	{
-		output_base_path(".");
+		output_base_path(".", 0);
 	}
-	if (argc == 2)
-		output_base_path(argv[1]);
+	if (argc > 1)
+	{
+		if (argc == 2)
+			output_base_path(argv[1], 0);
+		else
+		{
+			while (argv[i])
+			{
+				list = create_node(argv[i], argv[i]);
+				append(&head, list);
+				i++;
+			}
+			merge_sorting(&head);
+			output_errors(head);
+			while (head)
+			{
+				if (head->error == 0)
+				{
+					if (head->prev && head->prev->error == 0)
+						write(1, "\n", 1);
+					output_base_path(head->name, 1);
+				}
+				head = head->next;
+			}
+		}
+	}
 	return (0);
 }
