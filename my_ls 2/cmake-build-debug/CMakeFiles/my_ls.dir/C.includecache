@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../libft/includes/libft.h
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+
+/Users/bellyn-t/Desktop/lsls/my_ls/ft_ls.h
+libft.h
+/Users/bellyn-t/Desktop/lsls/my_ls/libft.h
+dirent.h
+-
+sys/stat.h
+-
+stdio.h
+-
+errno.h
+-
+limits.h
+-
+time.h
+-
+sys/ioctl.h
+-
+unistd.h
+-
+sys/xattr.h
+-
+
+/Users/bellyn-t/Desktop/lsls/my_ls/row_output.c
+ft_ls.h
+/Users/bellyn-t/Desktop/lsls/my_ls/ft_ls.h
+
