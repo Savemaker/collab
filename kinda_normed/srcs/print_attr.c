@@ -14,7 +14,7 @@ int			print_access(t_dir *object, char *buf, t_row_tty *row_struct)
 		buf[i++] = 'x';
 	}
 	check_access(object->mode, buf);
-	if (define_mode(object->mode) != 'b' && define_mode(object->mode) != 'c' && (row_struct->xattr_lstsize = listxattr(object->path, row_struct->xattr, ATTR_NAMESTR, XATTR_NOFOLLOW)))
+	if (define_mode(object->mode) != 'b' && define_mode(object->mode) != 'c' && (row_struct->xattr_lstsize = listxattr(object->path, row_struct->xattr, ATTR_NAMESTR, XATTR_NOFOLLOW) > 0))
 		buf[i++] = '@';
 	else if (define_mode(object->mode) != 'b' && define_mode(object->mode) != 'c' && (acl = acl_get_link_np(object->path, ACL_TYPE_EXTENDED)))
 	{
