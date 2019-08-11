@@ -59,7 +59,7 @@ void		rows_output(t_dir *object, uint16_t ws_cols, uint16_t total)
 		print_total(&row_struct);
 	while (object)
 	{
-		count = check_buf(buf, count);
+		check_buf(buf, count);
 		count += print_attributes(object, buf + count, &row_struct);
 		object = object->next;
 	}

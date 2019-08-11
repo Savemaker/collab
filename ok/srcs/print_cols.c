@@ -61,14 +61,10 @@ t_col_tty	colstruct_info(t_dir *object, uint16_t ws_col)
 	return (col_struct);
 }
 
-uint16_t check_buf(char *buf, uint16_t i)
+void check_buf(char *buf, uint16_t i)
 {
-	if (i == (uint16_t)BUFF_MAX)
-	{
+	if (i == (uint16_t) BUFF_MAX)
 		write(1, buf, i);
-		return (0);
-	}
-	return (i);
 }
 
 t_dir	*next_obj(t_dir *obj, t_col_tty col_struct)
@@ -85,31 +81,31 @@ void create_print_buf(t_dir *object, t_col_tty col_struct, char *buf, int *count
 {
 	uint16_t curr_col;
 	uint16_t j;
-	int temp;
-//int i;
+	int i;
 
-	temp = *count;
 	curr_col = 0;
+	i = *count;
 	while (++curr_col <= col_struct.cols && object)
 	{
 		j = 0;
-		color_name(object, buf);
+		i += color_name(object, buf + i);
 		while (object->name[j])
 		{
-			*count = check_buf(buf, *count);
-			buf[(*count)++] = object->name[j++];
+			check_buf(buf, i);
+			buf[i++] = object->name[j++];
 		}
-		if ((define_mode(object->mode) != 'c' && (S_ISVTX & object->mode) != S_ISVTX))
-			count += reset_color(buf + temp, 0);
+		if ((define_mode(object->mode) != 'c' && (S_ISVTX & object->mode) != S_ISVTX) && (define_mode(object->mode) != 'b') && (define_mode(object->mode) != 'p'))
+			i += reset_color(buf + i, 0);
 		else
-			count += reset_color(buf, 1);
+			i += reset_color(buf + i, 1);
 		while (j++ <= col_struct.maxwidth && curr_col != col_struct.cols)
 		{
-			*count = check_buf(buf, *count);
-			buf[(*count)++] = ' ';
+			check_buf(buf, i);
+			buf[i++] = ' ';
 		}
 		object = next_obj(object, col_struct);
 	}
-	*count = check_buf(buf, *count);
-	buf[(*count)++] = '\n';
+	check_buf(buf, i);
+	buf[i++] = '\n';
+	*count = i;
 }

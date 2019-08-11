@@ -110,7 +110,7 @@ void	print_path(t_dir *object, uint16_t flags);
 void	print_dir_content(t_dir *object, uint16_t flags, uint16_t ws_col, void (ft)(t_dir *, uint16_t, uint16_t));
 void		cols_output(t_dir *object, uint16_t ws_col, uint16_t total);
 void		create_print_buf(t_dir *object, t_col_tty col_struct, char *buf, int *count);
-uint16_t check_buf(char *buf, uint16_t i);
+//uint16_t check_buf(char *buf, uint16_t i);
 t_col_tty	colstruct_info(t_dir *object, uint16_t ws_col);
 void		define_cols_rows(t_col_tty *col_struct, uint16_t ws_col);
 void 		set_cols(t_col_tty *col_struct);
@@ -139,5 +139,6 @@ t_dir		*merge(t_dir *a, t_dir *b, uint16_t (f)(t_dir *, t_dir *));
 int make_colorful(char *color, char *buf);
 int color_name(t_dir *object, char *buf);
 int reset_color(char *buf, int background);
+void check_buf(char *buf, uint16_t i);
 
 #endif

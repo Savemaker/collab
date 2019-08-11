@@ -20,7 +20,11 @@ int color_name(t_dir *object, char *buf)
 	char *yellow;
 	char *red;
 	char *green;
+	char *fullblue;
+	char *cyan;
+	char *pink;
 	int i;
+struct stat s;
 
 	i = 0;
 	blue = "\e[96m";
@@ -28,7 +32,12 @@ int color_name(t_dir *object, char *buf)
 	yellow =  "\e[43m";
 	green = "\e[42m";
 	red = "\e[91m";
-	if (((S_IXUSR & object->mode) == S_IXUSR) || ((S_IXGRP & object->mode) == S_IXGRP) || ((S_IXOTH & object->mode) == S_IXOTH))
+	fullblue = "\e[44m";
+	cyan = "\e[106m";
+	pink = "\e[35m";
+
+	lstat(object->path, &s);
+	if ((S_IXUSR & s.st_mode) == S_IXUSR || ((S_IXGRP & s.st_mode) == S_IXGRP) || ((S_IXOTH & s.st_mode) == S_IXOTH))
 		i = make_colorful(red, buf);
 	if (define_mode(object->mode) == 'd')
 		i = make_colorful(blue, buf);
@@ -36,6 +45,12 @@ int color_name(t_dir *object, char *buf)
 		i = make_colorful(purple, buf);
 	if (define_mode(object->mode) == 'c')
 		i = make_colorful(yellow, buf);
+	if (define_mode(object->mode) == 'b')
+		i = make_colorful(fullblue, buf);
+	if (define_mode(object->mode) == 'p')
+		i = make_colorful(cyan, buf);
+	if (define_mode(object->mode) == 's')
+		i = make_colorful(pink, buf);
 	if (((S_ISVTX & object->mode) == S_ISVTX))
 		i = make_colorful(green, buf);
 	return (i);
