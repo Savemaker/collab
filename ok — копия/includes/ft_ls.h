@@ -65,6 +65,7 @@ typedef struct	s_row_tty
 	ssize_t		xattr_lstsize;
 	uint16_t	major_len; //старший млдаший номреа устройств
 	uint16_t	minor_len;
+	int			i;
 }				t_row_tty;
 
 typedef struct	s_word

@@ -66,7 +66,7 @@ void		rows_output(t_dir *object, uint16_t ws_cols, uint16_t total)
 
 	ws_cols = 0; //unused((((
 	buf = (char *)malloc(sizeof(char) * BUFF_MAX);
-//	ft_bzero(buf, BUFF_MAX);
+	// ft_bzero(buf, BUFF_MAX);
 
 
 	count = 0;

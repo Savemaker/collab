@@ -66,16 +66,16 @@ int			print_name(t_dir *object, char *buf, int i)
 //	int i;
 	int c;
 
-	i += color_name(object, buf);
+	//i += color_name(object, buf);
 	c = 0;
 	while (object->name[c])
 		buf[i++] = object->name[c++];
-	if ((define_mode(object->mode) != 'c' && (S_ISVTX & object->mode) != S_ISVTX) && (define_mode(object->mode) != 'b') && (define_mode(object->mode) != 'p'))
-		i += reset_color(buf + i, 0);
-	else
-		i += reset_color(buf + i, 1);
+	// if ((define_mode(object->mode) != 'c' && (S_ISVTX & object->mode) != S_ISVTX) && (define_mode(object->mode) != 'b') && (define_mode(object->mode) != 'p'))
+	// 	i += reset_color(buf + i, 0);
+	// else
+	// 	i += reset_color(buf + i, 1);
 	if ((define_mode(object->mode) == 'l'))
-		i += print_link(object, buf, i);
+		i = print_link(object, buf, i);
 	else
 		buf[i++] = '\n';
 	return (i);

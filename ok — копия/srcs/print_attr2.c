@@ -158,14 +158,14 @@ int			print_attributes(t_dir *object, char *buf, t_row_tty *row_struct, int i)
 //	i = 0;
 	buf[i] = define_mode(object->mode);
 	i++;
-
+row_struct++;
 //	if (i + 300 >= (uint16_t)BUFF_MAX)
 //	{
 //		write(1, buf, (size_t)i);
 //		i = 0;
 //	}
 
-	i = print_access(object, buf, row_struct, i);
+	// i = print_access(object, buf, row_struct, i);
 ////	check_dynamicbf(i + 9, buf);
 ////	if (i + 300 >= (uint16_t)BUFF_MAX)
 ////	{
@@ -197,25 +197,25 @@ int			print_attributes(t_dir *object, char *buf, t_row_tty *row_struct, int i)
 //	i = print_gid(object->gid, buf, &row_struct, i);
 
 
-////	check_dynamicbf(i + 20, buf);
-////	if (i + 300 >= (uint16_t)BUFF_MAX)
-////	{
-////		write(1, buf, (size_t)i);
-////		i = 0;
-////	}
+	// // check_dynamicbf(i + 20, buf);
+	// if (i + 300 >= (uint16_t)BUFF_MAX)
+	// {
+	// 	write(1, buf, (size_t)i);
+	// 	i = 0;
+	// }
 
 
-//
-//	if (define_mode(object->mode) == 'b' || define_mode(object->mode) == 'c')
-//	{
-//		i = print_major_minor((major(object->rdev)), buf, (long int)row_struct->major_len, 1, i);
-//		i = print_major_minor((minor(object->rdev)), buf, (long int)row_struct->minor_len, 0, i);
-//	}
-//	else if ((row_struct->minor_len > 0 || row_struct->major_len > 0))
-//		i = print_size((long int)object->size, buf, (long int)(row_struct->size_len + row_struct->major_len + row_struct->minor_len + 1), i);
-//	else
-//		i = print_size((long int)object->size, buf, (long int)(row_struct->size_len), i);
-//	i = print_time(buf, object, i);
+
+	// if (define_mode(object->mode) == 'b' || define_mode(object->mode) == 'c')
+	// {
+	// 	i = print_major_minor((major(object->rdev)), buf, (long int)row_struct->major_len, 1, i);
+	// 	i = print_major_minor((minor(object->rdev)), buf, (long int)row_struct->minor_len, 0, i);
+	// }
+	// else if ((row_struct->minor_len > 0 || row_struct->major_len > 0))
+	// 	i = print_size((long int)object->size, buf, (long int)(row_struct->size_len + row_struct->major_len + row_struct->minor_len + 1), i);
+	// else
+	// 	i = print_size((long int)object->size, buf, (long int)(row_struct->size_len), i);
+	i = print_time(buf, object, i);
 ////	check_dynamicbf(i + 30, buf);
 	i = print_name(object, buf, i);
 ////	check_dynamicbf(i + 50, buf);
