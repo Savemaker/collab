@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="nuuuu"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/katherine/Desktop/last ls/nuuuu/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/katherine/Desktop/last ls/nuuuu/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/katherine/Desktop/last ls/nuuuu/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nuuuu">
+				<Option output="/Users/katherine/Desktop/last ls/nuuuu/cmake-build-debug/nuuuu" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/katherine/Desktop/last ls/nuuuu/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/katherine/Desktop/last ls/nuuuu/includes"/>
+					<Add directory="/Users/katherine/Desktop/last ls/nuuuu/libft/includes"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 nuuuu"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nuuuu/fast">
+				<Option output="/Users/katherine/Desktop/last ls/nuuuu/cmake-build-debug/nuuuu" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/katherine/Desktop/last ls/nuuuu/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/katherine/Desktop/last ls/nuuuu/includes"/>
+					<Add directory="/Users/katherine/Desktop/last ls/nuuuu/libft/includes"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 nuuuu/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/katherine/Desktop/last\ ls/nuuuu/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/includes/ft_ls.h">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_atoi.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_bzero.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_countwords.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_isalnum.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_isalpha.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_isascii.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_isdigit.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_isprint.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_itoa.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_lstadd.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_lstdel.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_lstdelone.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_lstiter.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_lstmap.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_lstnew.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memalloc.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memccpy.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memchr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memcmp.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memcpy.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memdel.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memmove.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_memset.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_nbrlen.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putchar.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putchar_fd.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putendl.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putendl_fd.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putnbr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putnbr_fd.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putstr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_putstr_fd.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_recursive_factorial.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_spaceplus.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strcat.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strchr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strclr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strcmp.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strcpy.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strdel.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strdup.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strequ.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_striter.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_striteri.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strjoin.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strlcat.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strlen.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strmap.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strmapi.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strncat.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strncmp.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strncpy.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strnequ.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strnew.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strnstr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strrchr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strsplit.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strstr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strsub.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_strtrim.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_swap.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_tolower.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/ft_toupper.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/get_next_line.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/libft/includes/libft.h">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/check.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/check2.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/delete.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/flags.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/info.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/lst_ft.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/lst_ft2.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/main.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/main_print.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/print_attr.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/print_attr2.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/print_cols.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/print_cols2.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/print_rows.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/sort.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/sorting_ft.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/srcs/useful.c">
+			<Option target="nuuuu"/>
+		</Unit>
+		<Unit filename="/Users/katherine/Desktop/last ls/nuuuu/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
