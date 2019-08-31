@@ -6,13 +6,12 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 14:50:42 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/06/11 14:48:09 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/07/23 16:32:11 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # define BUFF_SIZE 12
@@ -20,14 +19,10 @@
 
 typedef struct		s_list
 {
-	char			*name;
-	char			*content;
+	void			*content;
 	size_t			content_size;
-	char			*path;
 	struct s_list	*next;
-	struct s_list	*prev;
-	int				error;  //1 = yes
-	
+
 }					t_list;
 
 void				*ft_memset(void *b, int c, size_t len);

@@ -1,34 +1,55 @@
 NAME = ft_ls
 
-SRC = ft_ls.c
+SRC = check.c\
+	check2.c\
+	delete.c\
+	flags.c\
+	info.c\
+	lst_ft.c\
+	lst_ft2.c\
+	main_print.c\
+	print_attr.c\
+	print_attr2.c\
+	print_attr3.c\
+	print_cols.c\
+	print_cols2.c\
+	print_rows.c\
+	sort.c\
+	sorting_ft.c\
+	useful.c\
+	main.c\
+	color.c\
+	pizdo.c\
 
 OBJ = $(SRC:.c=.o)
 
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra
 
-LIB	= libft/
+LIBFT = ./libft/libft.a
 
-LIBFT = -L./libft -lft
+LIB_INC = ./libft/includes
 
-LIB_INC = -I libft/includes
+LIB_DIR = ./libft
 
-.PHONY: all
+.PHONY: all clean fclean
 
 all: $(NAME)
 
 %.o:%.c
-	gcc $(FLAGS) -I ft_ls.h $(LIB_INC) -o $@ -c $<
+	gcc $(FLAGS) -I ./includes -I $(LIB_INC) -o $@ -c $<
 
 $(NAME): $(LIBFT) $(OBJ)
-	gcc $(FLAGS) -o $(NAME) -I ft_ls.h $(OBJ) $(LIBFT) $(LIB_INC)
+	gcc $(FLAGS) -o $@ $(OBJ) -I . -L./libft -lft -I $(LIB_INC)
 
 $(LIBFT):
-	make -C $(LIB)
+	make -C $(LIB_DIR)
 
 clean:
 	rm -rf $(OBJ)
+	make clean -C $(LIB_DIR)
 
 fclean: clean
 	rm -rf $(NAME)
+	make fclean -C $(LIB_DIR)
 
-re: fclean all
+re:	clean all
