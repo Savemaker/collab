@@ -6,7 +6,7 @@
 /*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:32:51 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/03 16:23:37 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/09/03 20:01:07 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ char	**ft_echo(char **parse, char **envp)
 	i = 1;
 	while (parse[i])
 	{
+		if (ft_strcmp(parse[i], " ") == 0)
+		{
+			i++;
+			continue;
+		}
 		ft_putstr(parse[i]);
 		if (parse[i + 1])
 			ft_putchar(' ');

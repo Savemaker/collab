@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:14:34 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/03 16:22:10 by bellyn-t         ###   ########.fr       */
+/*   Updated: 2019/09/03 20:21:14 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ char	**execute_builtin(char **parse, char **envp);
 char	**ft_echo(char **parse, char **envp);
 char	**ft_cd(char **parse, char **envp);
 char	**ft_cd_stuf(char **parse, char **envp);
-char	**update_pwd(char **envp, char *name);
+void	print_no_such(char *s);
+char	**update_pwd(char **envp, char *name, char *old);
 char	**ft_env(char **envp);
 char	**ft_setenv(char **parse, char **envp);
 char	**realloc_envp(int pointers, char *name, char *value, char **envp);
@@ -70,4 +71,5 @@ void	relative_execution(char *path, char **command, char **envp);
 char	*create_path(char *name, char *path);
 void	free_parse(char **parse, int w);
 char	*sub_line(char *parse, char **envp);
+char	*sub_line_stuf(char *parse);
 #endif

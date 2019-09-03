@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbeqqo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 17:01:35 by gbeqqo            #+#    #+#             */
-/*   Updated: 2018/12/04 17:51:34 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/09/03 18:26:57 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	if (!*needle)
 		return ((char *)haystack);
-	while (*haystack)
+	while (*haystack && *haystack != '=')
 	{
 		len = 0;
 		while (*haystack == *needle)

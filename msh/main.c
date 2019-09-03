@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 13:47:55 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/01 17:01:51 by bellyn-t         ###   ########.fr       */
+/*   Updated: 2019/09/03 20:34:29 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,22 @@ int		open_dir(char *path_from_env, char *name)
 
 int		check_path(char *path)
 {
+	struct stat s;
+
+	if ((lstat(path, &s)) == -1)
+	{
+		ft_putstr("minishell: command not found: ");
+		ft_putendl(path);
+		return (-1);
+	}
 	if (access(path, X_OK) == -1)
 	{
 		ft_putstr("minishell: permission denied: ");
 		ft_putendl(path);
 		return (-1);
 	}
+	if (ft_strcmp(path, "./") == 0 || ft_strcmp(path, "/") == 0)
+		return (-1);
 	return (0);
 }
 

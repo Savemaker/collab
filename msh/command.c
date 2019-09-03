@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:42:43 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/01 15:25:49 by bellyn-t         ###   ########.fr       */
+/*   Updated: 2019/09/03 20:12:11 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,22 +89,24 @@ int		check_command(char **command, char **envp)
 	int		words;
 
 	i = 0;
-	env_path = ft_getenv("PATH", envp);
-	words = count_words_delim(env_path, ':');
-	split = ft_split_delim(env_path, words, ':');
-	while (split[i])
+	if ((env_path = ft_getenv("PATH", envp)) != NULL)
 	{
-		if (open_dir(split[i], command[0]) == 1)
+		words = count_words_delim(env_path, ':');
+		split = ft_split_delim(env_path, words, ':');
+		while (split[i])
 		{
-			relative_execution(split[i], command, envp);
-			free_parse(split, words);
-			return (1);
+			if (open_dir(split[i], command[0]) == 1)
+			{
+				relative_execution(split[i], command, envp);
+				free_parse(split, words);
+				return (1);
+			}
+			i++;
 		}
-		i++;
+		free_parse(split, words);
 	}
 	ft_putstr("minishell: command not found: ");
 	ft_putendl(command[0]);
-	free_parse(split, words);
 	return (0);
 }
 

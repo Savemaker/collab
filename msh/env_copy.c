@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_copy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:37:03 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/03 16:17:39 by bellyn-t         ###   ########.fr       */
+/*   Updated: 2019/09/03 20:19:43 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*sub_line(char *parse, char **envp)
 	{
 		seek = ft_getenv(&parse[1], envp);
 		if (seek == NULL)
-			res = NULL;
+			res = sub_line_stuf(parse);
 		else
 			res = ft_strdup(seek);
 	}
