@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bellyn-t <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/03 14:32:14 by bellyn-t          #+#    #+#             */
+/*   Updated: 2018/12/03 14:41:27 by bellyn-t         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
+{
+  //size_t len;
+
+  //len = ft_strlen(s) + 1;
+  if (ft_strchr(s, c) == NULL)
+    return (NULL);     
+while (*s != '\0')
+	  s++;
+	//if ((char)c == '\0')
+	//return ((char *)s);
+	
+	while (*s != (char)c)
+	  s--;
+	return ((char *)s);
+	//	while (len--)
+	// {
+	//if (*s == (char)c)
+	//	return ((char *)s);
+	//s--;
+	//}
+	//return (NULL);
+}

@@ -1,0 +1,21 @@
+NAME = libft.a
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+SRCS = srcs/*.c
+OBJ = *.o
+INCLUDES = ./includes/
+
+all: $(NAME)
+
+$(NAME): $(SRCS)
+	$(CC) $(FLAGS) -c $(SRCS) -I $(INCLUDES)
+	ar rc $(NAME) $(OBJ)	
+	ranlib $(NAME)
+
+clean:
+	@rm -rf $(OBJ)
+
+fclean: clean
+	@rm -rf $(NAME)
+
+re: fclean all
