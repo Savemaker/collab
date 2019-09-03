@@ -6,7 +6,7 @@
 /*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:32:06 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/01 16:37:53 by bellyn-t         ###   ########.fr       */
+/*   Updated: 2019/09/03 16:21:48 by bellyn-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,39 +69,21 @@ char	**ft_unsetenv(char **parse, char **envp)
 	int		p;
 
 	new_env = NULL;
-	if (parse[1] != NULL)
+	p = count_pointers(parse);
+	if (p == 2 && parse[1] != NULL)
 	{
 		if (ft_getenv(parse[1], envp) != NULL)
 		{
 			p = count_pointers(envp) - 1;
 			new_env = realloc_envp_del(p, parse[1], envp);
 			free_copy_envp(&envp);
+			return (new_env);
 		}
 	}
-	return (new_env);
+	return (envp);
 }
 
 void	signals(void)
 {
 	signal(SIGINT, handle_sig);
-}
-
-void	ft_cd_stuf(char **parse, int i)
-{
-	int res;
-
-	res = chdir(parse[i]);
-	if (res == -1)
-	{
-		if (access(parse[i], F_OK) == 0)
-		{
-			ft_putstr("cd: permission denied: ");
-			ft_putendl(parse[i]);
-		}
-		else
-		{
-			ft_putstr("cd: no such file or directory: ");
-			ft_putendl(parse[i]);
-		}
-	}
 }

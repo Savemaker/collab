@@ -6,7 +6,7 @@
 /*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:14:34 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/01 16:37:17 by bellyn-t         ###   ########.fr       */
+/*   Updated: 2019/09/03 16:22:10 by bellyn-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int		check_builtin(char *cmd);
 char	**execute_builtin(char **parse, char **envp);
 char	**ft_echo(char **parse, char **envp);
 char	**ft_cd(char **parse, char **envp);
-void	ft_cd_stuf(char **parse, int i);
+char	**ft_cd_stuf(char **parse, char **envp);
+char	**update_pwd(char **envp, char *name);
 char	**ft_env(char **envp);
 char	**ft_setenv(char **parse, char **envp);
 char	**realloc_envp(int pointers, char *name, char *value, char **envp);

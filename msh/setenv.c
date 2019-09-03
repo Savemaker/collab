@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setenv.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:30:23 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/08/10 15:31:26 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/09/03 16:19:37 by bellyn-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,15 @@ char	**ft_setenv(char **parse, char **envp)
 	int		p;
 
 	new_env = NULL;
-	if (parse[1] != NULL && parse[2] != NULL)
+	p = count_pointers(parse);
+	if (p == 3 && parse[1] != NULL && parse[2] != NULL)
 	{
 		p = count_pointers(envp);
 		if (ft_getenv(parse[1], envp) == NULL)
 			p++;
 		new_env = realloc_envp(p, parse[1], parse[2], envp);
 		free_copy_envp(&envp);
+		return (new_env);
 	}
-	return (new_env);
+	return (envp);
 }

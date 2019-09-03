@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:32:51 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/09/01 17:08:25 by bellyn-t         ###   ########.fr       */
+/*   Updated: 2019/09/03 16:23:37 by gbeqqo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,6 @@ char	**ft_echo(char **parse, char **envp)
 		i++;
 	}
 	ft_putchar('\n');
-	return (envp);
-}
-
-char	**ft_cd(char **parse, char **envp)
-{
-	int		i;
-	int		res;
-	char	*home;
-
-	i = 0;
-	while (parse[i])
-		i++;
-	if (i > 2)
-	{
-		ft_putendl("cd: too many arguments");
-		return (envp);
-	}
-	--i;
-	if (parse[i][0] == '~' || i == 0)
-	{
-		home = ft_getenv("HOME", envp);
-		res = chdir(home);
-	}
-	else
-		ft_cd_stuf(parse, i);
 	return (envp);
 }
 

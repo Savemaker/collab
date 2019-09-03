@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   getenv.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbeqqo <gbeqqo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bellyn-t <bellyn-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 15:34:38 by gbeqqo            #+#    #+#             */
-/*   Updated: 2019/08/10 15:41:48 by gbeqqo           ###   ########.fr       */
+/*   Updated: 2019/09/03 14:27:57 by bellyn-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_getenv_index(const char *name, char **envp)
 		ret = ft_strstr(envp[i], name);
 		if (ret != NULL)
 		{
-			if (test_getenv(name, ret) == 1)
+			if (test_getenv(name, envp[i]) == 1)
 				return (i);
 		}
 		i++;
@@ -58,7 +58,7 @@ char	*ft_getenv(const char *name, char **envp)
 		ret = ft_strstr(envp[i], name);
 		if (ret != NULL)
 		{
-			if (test_getenv(name, ret) == 1)
+			if (test_getenv(name, envp[i]) == 1)
 				return (ret + len);
 		}
 		i++;
